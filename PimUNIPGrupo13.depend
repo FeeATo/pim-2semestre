@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1662947653 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\main.c
+	<stdio.h>
+	<stdlib.h>
+	"login.h"
+
+1662947004 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\login.c
+
+1662946871 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\login.h
+
