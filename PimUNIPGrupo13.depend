@@ -4,7 +4,14 @@
 	<stdlib.h>
 	"login.h"
 
-1662947004 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\login.c
+1663035312 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\login.c
+	"utils.h"
 
 1662946871 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\login.h
+
+1663034851 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\utils.c
+	"time.h"
+	<string.h>
+
+1663032992 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\utils.h
 
