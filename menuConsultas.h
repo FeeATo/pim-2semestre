@@ -1,2 +1,2 @@
-void telaConsultas();
-void escreverOpcoesDeConsulta(int);
+int telaConsultas();
+int escreverOpcoesDeConsulta(int);

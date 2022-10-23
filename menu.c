@@ -1,9 +1,10 @@
 #include "utils.h"
 #include "menuCadastro.h"
 #include "menuConsultas.h"
+#include "menuGerenciamento.h"
 
 int testaValidadeDaOpcao(int opcao);
-void direcionaParaOpcaoDesejada(int telaCod);
+int direcionaParaOpcaoDesejada(int telaCod);
 
 void carregaTelaMenu(int idUser){
     int telaCod=-1;
@@ -19,7 +20,8 @@ void carregaTelaMenu(int idUser){
         int validoOuInvalido = testaValidadeDaOpcao(telaCod);
 
         if(validoOuInvalido==0){
-            direcionaParaOpcaoDesejada(telaCod);
+            int result = direcionaParaOpcaoDesejada(telaCod);
+            if(result==-1) continue;
             break;
 
         } else{
@@ -47,17 +49,25 @@ int testaValidadeDaOpcao(int opcao){
     }
 }
 
-void direcionaParaOpcaoDesejada(int telaCod){
+int direcionaParaOpcaoDesejada(int telaCod){
+    int result = 0;
    switch(telaCod){
         case 1:
-            telaCadastro();
+            result = telaCadastro();
+            if(result==-1)
+                return result;
             break;
         case 2:
-            telaConsultas();
+            result = telaConsultas();
+            if(result==-1)
+                return result;
             break;
         case 3:
-            //telaGerencimento();
+            result = telaGerenciamento();
+            if(result==-1)
+                return result;
             break;
+
         case 4: break;
         case 5: break;
         default:

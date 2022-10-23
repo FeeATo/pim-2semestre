@@ -1,22 +1,16 @@
-#include "utils.h"
-
-
-void escreveOpcoesDeNavegacao();
-
-int telaCadastro(){
+int telaGerenciamento(){
     int telaCod=-1;
 
     while(1){
         limpaTela();
-        escreverOpcoesDeCadastro();
+        escreverOpcoesDeGerenciamento();
         printf("\n\n Digite o número da tela que deseja acessar: ");
 
         telaCod = intASCIIToInt(getIntegerOnly());
-
-        int validoOuInvalido = testaValidadeDaOpcao(telaCod);
+        int validoOuInvalido = testaValidadeDaOpcaoGerenciamento(telaCod);
 
         if(validoOuInvalido==0){
-            int result = direcionaParaOpcaoDesejadaCadastro(telaCod);
+            int result = direcionaParaOpcaoDesejadaGerenciamento(telaCod);
             if(result==-1) return -1;
             break;
         } else{
@@ -28,35 +22,34 @@ int telaCadastro(){
     }
 }
 
-int direcionaParaOpcaoDesejadaCadastro(int telaCod){
+int direcionaParaOpcaoDesejadaGerenciamento(int telaCod){
    switch(telaCod){
         case 1:
-            printf("cadastro funcionanrio");
+            printf("Gerenciamento funcionanrio");
             break;
         case 2:
-            printf("cadastro administrador");
+            printf("Gerenciamento administrador");
             break;
         case 3:
-            printf("cadastro cliente");
+            printf("Gerenciamento cliente");
             break;
         case 4:
             return -1;
-            break;
         default:
             excluiLinha(1);
             break;
     }
 }
 
-void escreverOpcoesDeCadastro(){
-    printf("\n ====== Menu - Cadastro ====== \n ");
-    printf("\n 1. Cadastrar novo funcionário");
-    printf("\n 2. Cadastrar novo administrador");
-    printf("\n 3. Cadastrar novo cliente");
+void escreverOpcoesDeGerenciamento(){
+    printf("\n ====== Menu - Consulta ====== \n ");
+    printf("\n 1. Acessar arquivos raw");
+    printf("\n 2. Alterar fonte de dados");
+    printf("\n 3. Logs");
     printf("\n 4. Voltar");
 }
 
-int testaValidadeDaOpcaoCadastro(int opcao){
+int testaValidadeDaOpcaoGerenciamento(int opcao){
     switch(opcao){
         case 1: return 0;
         case 2: return 0;

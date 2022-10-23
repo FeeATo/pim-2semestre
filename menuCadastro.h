@@ -1,5 +1,5 @@
 
-void telaCadastro();
+int telaCadastro();
 void escreverOpcoesDeCadastro();
 
 

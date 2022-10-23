@@ -1,8 +1,28 @@
-void telaConsultas(){
+int telaConsultas(){
+    int telaCod=-1;
 
+    while(1){
+        limpaTela();
+        escreverOpcoesDeConsulta();
+        printf("\n\n Digite o número da tela que deseja acessar: ");
+
+        telaCod = intASCIIToInt(getIntegerOnly());
+        int validoOuInvalido = testaValidadeDaOpcaoConsulta(telaCod);
+
+        if(validoOuInvalido==0){
+            int result = direcionaParaOpcaoDesejadaConsulta(telaCod);
+            if(result==-1) return -1;
+            break;
+        } else{
+            printf(" \n \033[0;31mOPÇÃO INVÁLIDA!");
+            timer_util(1, 0);
+            printf("\033[0m");
+            continue;
+        }
+    }
 }
 
-void direcionaParaOpcaoDesejadaConsulta(int telaCod){
+int direcionaParaOpcaoDesejadaConsulta(int telaCod){
    switch(telaCod){
         case 1:
             printf("cadastro funcionanrio");
@@ -13,6 +33,8 @@ void direcionaParaOpcaoDesejadaConsulta(int telaCod){
         case 3:
             printf("cadastro cliente");
             break;
+        case 4:
+            return -1;
         default:
             excluiLinha(1);
             break;
@@ -20,10 +42,10 @@ void direcionaParaOpcaoDesejadaConsulta(int telaCod){
 }
 
 void escreverOpcoesDeConsulta(){
-    printf("\n ====== Menu - Cadastro ====== \n ");
-    printf("\n 1. Cadastrar novo funcionário");
-    printf("\n 2. Cadastrar novo administrador");
-    printf("\n 3. Cadastrar novo cliente");
+    printf("\n ====== Menu - Consulta ====== \n ");
+    printf("\n 1. Consultar funcionários");
+    printf("\n 2. Consultar administradores");
+    printf("\n 3. Consultar clientes");
     printf("\n 4. Voltar");
 }
 

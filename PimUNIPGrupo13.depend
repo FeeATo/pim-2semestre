@@ -1,19 +1,22 @@
 # depslib dependency file v1.0
-1662947653 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\main.c
+1666399616 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\main.c
 	<stdio.h>
 	<stdlib.h>
 	"login.h"
+	"menu.h"
+	"locale.h"
 
-1663035312 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\login.c
+1666487195 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\login.c
 	"utils.h"
+	"stdlib.h"
 
-1662946871 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\login.h
+1666394358 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\login.h
 
-1663034851 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\utils.c
+1666487016 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\utils.c
 	"time.h"
 	<string.h>
 
-1663032992 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\utils.h
+1666478266 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\utils.h
 
 1666399924 source:d:\pim-deletar\pim-2semestre-main\login.c
 	"utils.h"
@@ -39,7 +42,7 @@
 
 1666394325 d:\pim-deletar\pim-2semestre-main\menu.h
 
-1666487119 source:d:\estudos\unip\semestre2\tela-login-feita-menu\pim-2semestre-main\login.c
+1666487195 source:d:\estudos\unip\semestre2\tela-login-feita-menu\pim-2semestre-main\login.c
 	"utils.h"
 	"stdlib.h"
 
@@ -60,10 +63,11 @@
 	"time.h"
 	<string.h>
 
-1666485958 source:d:\estudos\unip\semestre2\tela-login-feita-menu\pim-2semestre-main\menu.c
+1666489862 source:d:\estudos\unip\semestre2\tela-login-feita-menu\pim-2semestre-main\menu.c
 	"utils.h"
 	"menuCadastro.h"
 	"menuConsultas.h"
+	"menuGerenciamento.h"
 
 1666479084 source:d:\estudos\unip\semestre2\tela-login-feita-menu\pim-2semestre-main\menu-cadastrofuncionario.c
 
@@ -72,12 +76,30 @@
 
 1666480912 d:\estudos\unip\semestre2\tela-login-feita-menu\pim-2semestre-main\menucadastrofuncionario.h
 
-1666485738 d:\estudos\unip\semestre2\tela-login-feita-menu\pim-2semestre-main\menucadastro.h
+1666489345 d:\estudos\unip\semestre2\tela-login-feita-menu\pim-2semestre-main\menucadastro.h
 
-1666485926 d:\estudos\unip\semestre2\tela-login-feita-menu\pim-2semestre-main\menuconsultas.h
+1666489880 d:\estudos\unip\semestre2\tela-login-feita-menu\pim-2semestre-main\menuconsultas.h
 
-1666485868 source:d:\estudos\unip\semestre2\tela-login-feita-menu\pim-2semestre-main\menucadastro.c
+1666489676 source:d:\estudos\unip\semestre2\tela-login-feita-menu\pim-2semestre-main\menucadastro.c
 	"utils.h"
 
-1666485951 source:d:\estudos\unip\semestre2\tela-login-feita-menu\pim-2semestre-main\menuconsultas.c
+1666489842 source:d:\estudos\unip\semestre2\tela-login-feita-menu\pim-2semestre-main\menuconsultas.c
+
+1666489830 source:d:\estudos\unip\semestre2\tela-login-feita-menu\pim-2semestre-main\menugerenciamento.c
+
+1666489885 d:\estudos\unip\semestre2\tela-login-feita-menu\pim-2semestre-main\menugerenciamento.h
+
+1666394326 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\menu.h
+
+1666489862 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\menu.c
+	"utils.h"
+	"menuCadastro.h"
+	"menuConsultas.h"
+	"menuGerenciamento.h"
+
+1666489345 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\menucadastro.h
+
+1666489880 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\menuconsultas.h
+
+1666489885 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\menugerenciamento.h
 
