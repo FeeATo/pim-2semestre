@@ -1,7 +1,11 @@
 #include "utils.h"
+#include "stdlib.h"
+#define CURSOR_CIMA "\033[A"
+#define DELETA_LINHA "\033[0;32m"
 
 const char LOGIN[10] = "TEST";
 const char PASSWORD[10] = "1234";
+const int ID_USER = 1;
 
 char login_enter[10] = "";
 char senha_enter[10] = "";
@@ -9,32 +13,69 @@ char senha_enter[10] = "";
 
 
 //carrega a tela de login e atribui os valores de login digitados pelo usuário às variáveis para serem comparadas
-void carregaTelaLogin(){
-    system("cls");
-    printf("\n ========== Login ========== \n \n");
-    printf(" Login: ");
-    gets(login_enter);
+int carregaTelaLogin(){
+    while(1){
+        system("cls");
+        printf("\n ========== Login ========== \n \n");
+        printf(" Login: ");
+        gets(login_enter);
 
-    printf(" Senha: ");
-    gets(senha_enter);
+        printf(" Senha: ");
+        int i=0;
+        char ch;
+        while(1) {
+            ch=getch();
+            if(ch==13){
+               break;
+            } else{
+                if(ch==8) {
+                        senha_enter[i];
+                        i--;
+                        printf("\b \b");
+                } else{
+                    senha_enter[i] = ch;
+                    i++;
+                    printf("*");
+                }
+            }
+        }
+        senha_enter[i++] = '\0';
+        printf("\n");
 
 
+        //maskPassword();
+        timer_util(2, 1);
+        int check = checkLogin(login_enter, senha_enter);
+        if(check==1){
 
-    //maskPassword();
-    timer_util(1);
-    int check = checkLogin(login_enter, senha_enter);
-    if(check==1)
-        printf("certo");
-    else{
-        if(check==2) printf(" \033[0;31m Login incorreto!\n");
-        else if(check==3) printf(" \033[0;31m Senha incorreta!\n");
+            printf("\n %s%sLogin correto  \n", CURSOR_CIMA, DELETA_LINHA);
+            printf("\033[0m");
+            timer_util(1,1);
 
-        printf("\n \033[0m Deseja tentar novamente? (s/n) \n");
-        //CONTINUAR ADQUI, CRIAR MÉTODO QUE MUDA A COR DA TELA E SE ACEITA TENTAR NOVAMENTE OU NÃO
+            return ID_USER;
+            break;
+        }
+        else{
+            char teclaApertada;
+
+            if(check==2) printf(" \033[0;31mLogin incorreto!\n");
+            else if(check==3) printf("\033[0;31m Senha incorreta!\n");
+
+            char opcaoDigitada=-1;
+            while(1){
+                printf("\n\033[0m Deseja tentar novamente (s/n)? ");
+                teclaApertada = getSimOuNao();
+                if(teclaApertada=='s') break;
+                else
+                    return 0;
+
+            }
+
+        }
     }
 
-
-    printf("\n =========================== \n");
+    printf("\33[2K\r");
+    printf(" =========================== \n \n");
 
 }
 

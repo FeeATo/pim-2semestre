@@ -1,0 +1,6 @@
+
+void telaCadastro();
+void escreverOpcoesDeCadastro();
+
+
+

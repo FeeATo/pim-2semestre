@@ -12,12 +12,83 @@
 
 }*/
 
-void timer_util(int secs) {
+int getIntegerOnly()
+{
+    //printf("%s", );
+    int num = 0, ch;
+     while(1) {
+        ch=getch();
+        if(ch==13){
+           return num;
+        } else{
+            if(ch==8) {
+                    printf("\b \b");
+            } else{
+                if(ch>=48 && ch<=57){
+                    num = ch;
+                    printf("%c", ch);
+                }
+            }
+        }
+    }
+
+    return (num);
+}
+
+int getSimOuNao()
+{
+    //printf("%s", );
+    int num = 0, ch;
+     while(1) {
+        ch=getch();
+        if(ch==13){
+           return num;
+        } else{
+            if(ch==8) {
+                    printf("\b \b");
+            } else{
+                if(ch=='s' || ch=='n'){
+                    num = ch;
+                    printf("%c", ch);
+                }
+            }
+        }
+    }
+
+    return (num);
+}
+
+int intASCIIToInt(int intAsc){
+    switch(intAsc){
+        case 48: return 0;
+        case 49: return 1;
+        case 50: return 2;
+        case 51: return 3;
+        case 52: return 4;
+        case 53: return 5;
+        case 54: return 6;
+        case 55: return 7;
+        case 56: return 8;
+        case 57: return 9;
+    }
+}
+
+void limpaTela(){
+    system("cls");
+}
+
+void excluiLinha(int x){
+    for(int i = 0; i<x; i++){
+        printf("\033[A \33[2K");
+    }
+}
+
+void timer_util(int secs, int withLoaingMessage) {
     time_t start, end;
     double elapsed;
 
     time(&start);  /* start the timer */
-    printf(" Loading...");
+    if(withLoaingMessage==1) printf("\n Loading...");
     do {
         time(&end);
 
@@ -28,7 +99,7 @@ void timer_util(int secs) {
 
 
     } while(elapsed < secs);  /* run for ten seconds */
-    printf("\r           \n");
+    if(withLoaingMessage==1)printf("\033[A \33[2K\r         \n");
 }
 
 //compara tamanho de strings
