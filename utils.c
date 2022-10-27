@@ -1,5 +1,7 @@
 #include "time.h"
 #include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 //atribui valor a uma String com base em outra String, não funciona ainda pq não sei ponteiros
 /*char[20] atribuiArray(char target[20], char str[20], int size){
@@ -83,6 +85,145 @@ void excluiLinha(int x){
     }
 }
 
+char *pegaLinhaPorIndex(FILE *fp, int index){
+    char c;
+    int count=0;
+    char *retorno;
+    if (fp == NULL)
+    {
+        printf("Could not open file");
+        return 0;
+    }
+
+    int i=0;
+
+    //volta o cursor ara o início do arquivo
+    // Extract characters from file and store in character c
+    int normalCaracter=0;
+    int indexFimDaLinha;
+
+    while((c = fgetc(fp))!=EOF){
+        if (c == '\n'){
+            // Increment count if this character is newline
+            if(count==index){
+
+                break;
+            }
+            count++;
+            normalCaracter=0;
+        }
+        else {
+            normalCaracter++;
+            indexFimDaLinha=normalCaracter;
+
+        }
+    }
+
+    char *linhaCerta = malloc(indexFimDaLinha);
+
+    rewind(fp);
+    count=0;
+    while((c = fgetc(fp))!=EOF){
+        // Increment count if this character is newline
+        if(count==index){
+            *(linhaCerta+i) = c;
+            if(i==indexFimDaLinha){
+
+                break;
+            }
+            i++;
+        }
+        if (c == '\n'){
+            count++;
+        }
+
+
+    }
+
+    rewind(fp);
+    return linhaCerta;
+}
+
+char *pegaTamanhoLinhaPorIndex(FILE *fp, int index){
+    char c;
+    int count=0;
+    char *retorno;
+    if (fp == NULL)
+    {
+        printf("Could not open file");
+        return 0;
+    }
+
+    int i=0;
+
+    //volta o cursor ara o início do arquivo
+    // Extract characters from file and store in character c
+    int normalCaracter=0;
+    int indexFimDaLinha;
+
+    while((c = fgetc(fp))!=EOF){
+        if (c == '\n'){
+            // Increment count if this character is newline
+            if(count==index){
+
+                break;
+            }
+            count++;
+            normalCaracter=0;
+        }
+        else {
+            normalCaracter++;
+            indexFimDaLinha=normalCaracter;
+
+        }
+    }
+
+    char linhaCerta[normalCaracter];
+
+    rewind(fp);
+    count=0;
+    while((c = fgetc(fp))!=EOF){
+        // Increment count if this character is newline
+        if(count==index){
+            linhaCerta[i] = c;
+            if(i==indexFimDaLinha){
+                linhaCerta[i+1] = '\n';
+                break;
+            }
+            i++;
+        }
+        if (c == '\n'){
+            count++;
+        }
+
+
+    }
+
+    rewind(fp);
+    return i+1;
+}
+
+int contaLinhasTxt(FILE *fp){
+    char c;
+    int count=0;
+    if (fp == NULL)
+    {
+        printf("Could not open file");
+        return 0;
+    }
+
+    // Extract characters from file and store in character c
+    for (c = getc(fp); c != EOF; c = getc(fp))
+        if (c == '\n') // Increment count if this character is newline
+            count++;
+
+    // Close the file
+
+    rewind(fp);
+
+    return count+1;
+}
+
 void timer_util(int secs, int withLoaingMessage) {
     time_t start, end;
     double elapsed;
@@ -119,5 +260,15 @@ int stringComp(int size, char str1[], char str2[]){
     int ret=0;
     ret = size == count ? 1 : 0;
     return ret;
+}
+
+int contaCaracters(char *p){
+    int count=0;
+    char *p1 = p;
+    while(*(p1+count)!='\n'){
+        count++;
+    }
+
+    return count;
 }
 

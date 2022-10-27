@@ -6,17 +6,24 @@
 	"menu.h"
 	"locale.h"
 
-1666487195 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\login.c
+1666834631 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\login.c
 	"utils.h"
-	"stdlib.h"
+	<stdio.h>
+	<stdlib.h>
 
-1666394358 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\login.h
+1666661631 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\login.h
+	<stdio.h>
+	<stdlib.h>
 
-1666487016 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\utils.c
+1666834261 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\utils.c
 	"time.h"
 	<string.h>
+	<stdio.h>
+	<stdlib.h>
 
-1666478266 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\utils.h
+1666748826 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\utils.h
+	<stdio.h>
+	<stdlib.h>
 
 1666399924 source:d:\pim-deletar\pim-2semestre-main\login.c
 	"utils.h"
@@ -102,4 +109,11 @@
 1666489880 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\menuconsultas.h
 
 1666489885 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\menugerenciamento.h
+
+1666489676 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\menucadastro.c
+	"utils.h"
+
+1666489842 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\menuconsultas.c
+
+1666489830 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\menugerenciamento.c
 
