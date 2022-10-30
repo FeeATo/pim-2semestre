@@ -15,7 +15,7 @@ void carregaTelaMenu(int idUser){
         escreveOpcoesDeNavegacao();
         printf("\n\n Digite o número da tela que deseja acessar: ");
 
-        telaCod = intASCIIToInt(getIntegerOnly());
+        telaCod = intASCIIToInt(getOneIntegerOnly());
 
         int validoOuInvalido = testaValidadeDaOpcao(telaCod);
 

@@ -9,6 +9,7 @@
 
 void aplicaConfigs();
 
+
 int main()
 {
     aplicaConfigs();

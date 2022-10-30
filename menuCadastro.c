@@ -1,5 +1,5 @@
 #include "utils.h"
-
+#include "cadastroFuncionario.h"
 
 void escreveOpcoesDeNavegacao();
 
@@ -11,7 +11,7 @@ int telaCadastro(){
         escreverOpcoesDeCadastro();
         printf("\n\n Digite o número da tela que deseja acessar: ");
 
-        telaCod = intASCIIToInt(getIntegerOnly());
+        telaCod = intASCIIToInt(getOneIntegerOnly());
 
         int validoOuInvalido = testaValidadeDaOpcao(telaCod);
 
@@ -31,7 +31,7 @@ int telaCadastro(){
 int direcionaParaOpcaoDesejadaCadastro(int telaCod){
    switch(telaCod){
         case 1:
-            printf("cadastro funcionanrio");
+            cadastroFuncionarioTela();
             break;
         case 2:
             printf("cadastro administrador");
@@ -46,6 +46,9 @@ int direcionaParaOpcaoDesejadaCadastro(int telaCod){
             excluiLinha(1);
             break;
     }
+
+
+    return 0;
 }
 
 void escreverOpcoesDeCadastro(){

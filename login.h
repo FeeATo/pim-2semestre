@@ -4,5 +4,5 @@
 #include <stdlib.h>
 
 int carregaTelaLogin();
-struct User separaValores(char *linha, int tamanhoString);
+struct User separaValores(char *linha);
 #endif // LOGIN_H_INCLUDED

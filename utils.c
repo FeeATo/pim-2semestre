@@ -2,6 +2,11 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#define CURSOR_CIMA "\033[A"
+#define DELETA_LINHA "\033[0;32m"
+#define TEXTO_VERMELHO "\033[31m"
+#define TEXTO_PRETO "\033[0m"
+#define TEXTO_VERDE "\033[32m"
 
 //atribui valor a uma String com base em outra String, não funciona ainda pq não sei ponteiros
 /*char[20] atribuiArray(char target[20], char str[20], int size){
@@ -14,27 +19,95 @@
 
 }*/
 
-int getIntegerOnly()
+int getOneIntegerOnly()
 {
     //printf("%s", );
+    int allowdBackspaces=0;
     int num = 0, ch;
+    int reps=0;
      while(1) {
         ch=getch();
         if(ch==13){
            return num;
         } else{
             if(ch==8) {
+                if(allowdBackspaces==1){
                     printf("\b \b");
+                    allowdBackspaces=0;
+                }
+                reps=-1;
+            } else{
+                if(ch>=48 && ch<=57){
+                    num = ch;
+                    if(reps>0){
+                        printf("\b");
+                    }
+                    printf("%c", ch);
+                    allowdBackspaces=1;
+                }
+            }
+        }
+        reps++;
+    }
+
+    return (num);
+}
+
+int getIntegerOnly()
+{
+    //printf("%s", );
+    int allowdBackspaces=0;
+    int num = 0, ch;
+    int reps=0;
+     while(1) {
+        ch=getch();
+        if(ch==13){
+           return num;
+        } else{
+            if(ch==8 && allowdBackspaces>0) {
+                printf("\b \b");
+                allowdBackspaces--;
+
             } else{
                 if(ch>=48 && ch<=57){
                     num = ch;
                     printf("%c", ch);
+                    allowdBackspaces++;
                 }
+            }
+        }
+        reps++;
+    }
+
+    return (num);
+}
+
+char *readPasswordAndMaskDigited(){
+    char senha[10];
+    char ch;
+    int i =0;
+    int allowedBackspaces=0;
+    while(1) {
+        ch=getch();
+        if(ch==13){
+            break;
+        } else{
+            if(ch==8 && allowedBackspaces>0) {
+                i--;
+                allowedBackspaces--;
+                printf("\b \b");
+            } else if(ch==8 && allowedBackspaces==0){
+                    //não faça nada
+            } else{
+                    *(senha+1) = ch;
+                    i++;
+                    allowedBackspaces++;
+                    printf("*");
             }
         }
     }
 
-    return (num);
+    return senha;
 }
 
 int getSimOuNao()
@@ -81,7 +154,7 @@ void limpaTela(){
 
 void excluiLinha(int x){
     for(int i = 0; i<x; i++){
-        printf("\033[A \33[2K");
+        printf("\033[A\33[2K");
     }
 }
 
@@ -241,6 +314,11 @@ void timer_util(int secs, int withLoaingMessage) {
 
     } while(elapsed < secs);  /* run for ten seconds */
     if(withLoaingMessage==1)printf("\033[A \33[2K\r         \n");
+}
+
+void sobeLinha(int qntd){
+    for(int i=0; i<qntd; i++)
+        printf(CURSOR_CIMA);
 }
 
 //compara tamanho de strings

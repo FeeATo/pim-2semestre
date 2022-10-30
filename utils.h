@@ -7,8 +7,10 @@
 //char[] atribuiArray(char[] target, char[] str, int size);
 int timer_util(int secs, int withLoadingMessage);
 void excluiLinha(int x);
+int getOneIntegerOnly();
 int getIntegerOnly();
 int intASCIIToInt(int);
 int contaLinhasTxt(FILE *);
 char *pegaLinhaPorIndex(FILE *, int);
+void sobeLinha(int);
 #endif // UTILS_H_INCLUDED

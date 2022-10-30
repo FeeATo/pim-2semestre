@@ -4,6 +4,7 @@
 #define CURSOR_CIMA "\033[A"
 #define DELETA_LINHA "\033[0;32m"
 
+
 const char LOGIN[10] = "TEST";
 const char PASSWORD[10] = "1234";
 const int ID_USER = 1;
@@ -19,6 +20,8 @@ char senha_enter[10] = "";
 
 struct User separaValores(char *linha);
 
+
+int typeLogin;
 
 //carrega a tela de login e atribui os valores de login digitados pelo usuário às variáveis para serem comparadas
 int carregaTelaLogin(){
@@ -121,6 +124,7 @@ int checkLogin(char login[10], char pwd[10]){
         int pwdComp = stringComp(strlen(pwd),pwd, myUser.senha);
         if(loginComp == 1 && pwdComp == 1){
             fclose(fp);
+            typeLogin = myUser.type;
             return 1;
         } else{
             continue;

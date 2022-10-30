@@ -1,27 +1,27 @@
 # depslib dependency file v1.0
-1666399616 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\main.c
+1666915707 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\main.c
 	<stdio.h>
 	<stdlib.h>
 	"login.h"
 	"menu.h"
 	"locale.h"
 
-1666834631 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\login.c
+1666918686 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\login.c
 	"utils.h"
 	<stdio.h>
 	<stdlib.h>
 
-1666661631 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\login.h
+1667082274 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\login.h
 	<stdio.h>
 	<stdlib.h>
 
-1666834261 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\utils.c
+1667090781 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\utils.c
 	"time.h"
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
 
-1666748826 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\utils.h
+1667087683 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\utils.h
 	<stdio.h>
 	<stdlib.h>
 
@@ -98,7 +98,7 @@
 
 1666394326 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\menu.h
 
-1666489862 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\menu.c
+1667087609 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\menu.c
 	"utils.h"
 	"menuCadastro.h"
 	"menuConsultas.h"
@@ -110,10 +110,17 @@
 
 1666489885 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\menugerenciamento.h
 
-1666489676 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\menucadastro.c
+1667087596 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\menucadastro.c
 	"utils.h"
+	"cadastroFuncionario.h"
 
 1666489842 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\menuconsultas.c
 
 1666489830 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\menugerenciamento.c
+
+1667092406 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\cadastrofuncionario.c
+	"utils.h"
+	"login.h"
+
+1666915831 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\cadastrofuncionario.h
 
