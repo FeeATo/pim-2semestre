@@ -148,6 +148,21 @@ int intASCIIToInt(int intAsc){
     }
 }
 
+char intToIntASCII(int integer){
+    switch(integer){
+        case 0: return 48;
+        case 1: return 49;
+        case 2: return 50;
+        case 3: return 51;
+        case 4: return 52;
+        case 5: return 53;
+        case 6: return 54;
+        case 7: return 55;
+        case 8: return 56;
+        case 9: return 57;
+    }
+}
+
 void limpaTela(){
     system("cls");
 }
@@ -339,6 +354,8 @@ int stringComp(int size, char str1[], char str2[]){
     ret = size == count ? 1 : 0;
     return ret;
 }
+
+
 
 int contaCaracters(char *p){
     int count=0;

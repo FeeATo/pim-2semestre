@@ -5,14 +5,15 @@
 #define TEXTO_VERDE "\033[31m"
 #include "utils.h"
 #include "login.h"
-
+#include <math.h>
+#include "dbFuncoes.h"
 
 struct Usuario{
     char *login;
     int type;
     char *nome;
     char *sobrenome;
-    int cpf;
+    long long int cpf;
 };
 
 struct User{
@@ -20,6 +21,9 @@ struct User{
     char *senha;
     int type;
 };
+
+char *usuarioStructToLinhaCSV(struct Usuario usuario);
+char *userStructToLinhaCSV(struct User user);
 
 int escreveTelaCadastroFuncionario(){
     system("cls");
@@ -44,7 +48,7 @@ int cadastroFuncionarioTela(){
     char senhaConfirmar[10];
     char nome[20];
     char sobrenome[20];
-    int cpf;
+    long long int cpf;
 
     int existencia=0;
     printf("\n");
@@ -70,12 +74,16 @@ int cadastroFuncionarioTela(){
     printf(" Sobrenome: ");
     gets(sobrenome);
 
-    printf(" CPF: ");
-    cpf = intASCIIToInt(getIntegerOnly());
+    int repetCpf = 0;
+    do{
+        if(repetCpf>0) excluiLinha(1);
+        printf(" CPF: ");
+        repetCpf++;
+    } while(scanf("%lld", &cpf) != 1 || cpf<10000000000 || cpf>99999999999);
     //só deixa digitar números
 
-
-    printf("\n Senha: "); //fazer botãozinho de ver senha
+    fflush(stdin);
+    printf(" Senha: "); //fazer botãozinho de ver senha
     //funcao de ler senha e escrever um asterisco
     int i=0;
     char ch;
@@ -138,8 +146,96 @@ int cadastroFuncionarioTela(){
     struct Usuario newUsuario = {login, 1, nome, sobrenome, cpf};
     struct User newUser = {login, senha, 1};
 
+    char *csvUsuarioLine = usuarioStructToLinhaCSV(newUsuario);
+    char *csvUserLine = userStructToLinhaCSV(newUser);
+
+
+    FILE *loginCredenciais = fopen(".\\DB\\loginCredentials.txt", "a");
+    FILE *usuariosInformacoes = fopen(".\\DB\\usuariosInformacoes.txt", "a");
+
+    int retorno;
     //salva newUsuario
+    if(!(salvaLinhaNoArquivo(csvUsuarioLine[0], loginCredenciais) && salvaLinhaNoArquivo(newUser[0], usuariosInformacoes)))
+        retorno = 0;
+    else
+        retorno = 1;
+
+    fclose(loginCredenciais);
+    fclose(usuariosInformacoes);
+
+    return retorno;
+
     //salva newUser
+}
+
+
+
+char *userStructToLinhaCSV(struct User user){
+    int sizeLogin = strlen(user.login);
+    int sizeSenha = strlen(user.senha);
+    int totalSize = sizeLogin+1+sizeSenha+1+1;
+    char *line = malloc(totalSize);
+    int i = 0;
+    int j=0;
+    for(i=0; i<sizeLogin; i++){
+        line[i] = user.login[i];
+    }
+
+    line[i]=';';
+    i++;
+    for(j=0; j<sizeSenha; j++){
+        line[i]=user.senha[j];
+        i++;
+    }
+    line[i]=';';
+    i++;
+    line[i]=intToIntASCII(user.type);
+    line[++i]='\0';
+
+    return line;
+
+}
+
+char *usuarioStructToLinhaCSV(struct Usuario user){
+    int sizeLogin = strlen(user.login);
+    int quatroBytes = 4;
+    int sizeNome = strlen(user.nome);
+    int sizeSobrenome = strlen(user.sobrenome);
+    int quarentaEQuatroBytes = 11;
+    int totalSize = sizeLogin+1+1+1+sizeNome+1+sizeSobrenome+1+quarentaEQuatroBytes;
+    char *line = malloc(totalSize);
+    int i = 0;
+    int j=0;
+    for(i=0; i<sizeLogin; i++){
+        line[i] = user.login[i];
+    }
+
+    line[i]=';';
+    i++;
+    line[i]=intToIntASCII(user.type);
+    i++;
+    line[i]=';';
+    i++;
+    for(j=0; j<sizeNome;j++){
+        line[i]=user.nome[j];
+        i++;
+    }
+    line[i]=';';
+    i++;
+    for(j=0;j<sizeSobrenome;j++){
+        line[i]=user.sobrenome[j];
+        i++;
+    }
+    line[i]=';';
+    i++;
+    long long int cpfInt = user.cpf;
+    for(j=10; j>=0; j--){
+        line[i+j] = intToIntASCII(cpfInt%10);
+        cpfInt/=10;
+    }
+    i+=11;
+    line[i]='\0';
+    return line;
 }
 
 

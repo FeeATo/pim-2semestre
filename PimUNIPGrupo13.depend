@@ -15,13 +15,13 @@
 	<stdio.h>
 	<stdlib.h>
 
-1667090781 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\utils.c
+1667264872 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\utils.c
 	"time.h"
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
 
-1667087683 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\utils.h
+1667264886 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\utils.h
 	<stdio.h>
 	<stdlib.h>
 
@@ -118,9 +118,16 @@
 
 1666489830 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\menugerenciamento.c
 
-1667092406 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\cadastrofuncionario.c
+1667269041 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\cadastrofuncionario.c
 	"utils.h"
 	"login.h"
+	<math.h>
+	"dbFuncoes.h"
 
 1666915831 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\cadastrofuncionario.h
+
+1667269180 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\dbfuncoes.c
+	"utils.h"
+
+1667267675 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\dbfuncoes.h
 

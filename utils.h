@@ -13,4 +13,5 @@ int intASCIIToInt(int);
 int contaLinhasTxt(FILE *);
 char *pegaLinhaPorIndex(FILE *, int);
 void sobeLinha(int);
+char intToIntASCII(int);
 #endif // UTILS_H_INCLUDED
