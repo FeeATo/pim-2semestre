@@ -1,8 +1,9 @@
 #include "utils.h"
 
 
+//retorna 1 se deu certo e 0 se deu erro
 int salvaLinhaNoArquivo(char *linha, FILE *fp){
-    char *linha2 = &linha;
+
     if (fp == NULL)
     {
         printf("Error opening file!\n");
@@ -10,7 +11,8 @@ int salvaLinhaNoArquivo(char *linha, FILE *fp){
     }
 
     int result;
-    result = fputs(linha2,fp);
+    fputs("\n", fp);
+    result = fputs(linha,fp);
     if(result!=EOF)
         return 1;
 
