@@ -1,0 +1,17 @@
+Cadastrar
+---------
+
+- Funcionario - OK
+- ADM
+- Cliente
+
+===============
+
+Consultas
+---------
+- Consultar usuários
+- Gerar relatórios
+- Consultar relatórios
+
+
+Gerenciamento

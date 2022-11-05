@@ -1,3 +1,4 @@
 master;3;master;master;51099188806
 user;1;Miguel;Alota Teles;55555555555
 user2;1;Jessica;Alota Teles;33333333333
+adm;2;Fernando;Alota Teles;77777777777

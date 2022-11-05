@@ -1,0 +1,2 @@
+int escreveTelaCadastroCliente();
+int cadastroClienteTela();

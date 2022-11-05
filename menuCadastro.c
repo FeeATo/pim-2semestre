@@ -1,5 +1,6 @@
 #include "utils.h"
 #include "cadastroFuncionario.h"
+#include "cadastroCliente.h"
 
 void escreveOpcoesDeNavegacao();
 
@@ -31,13 +32,13 @@ int telaCadastro(){
 int direcionaParaOpcaoDesejadaCadastro(int telaCod){
    switch(telaCod){
         case 1:
-            cadastroFuncionarioTela();
+            cadastroUsuarioTela(1);
             break;
         case 2:
-            printf("cadastro administrador");
+            cadastroUsuarioTela(2);
             break;
         case 3:
-            printf("cadastro cliente");
+            cadastroClienteTela();
             break;
         case 4:
             return -1;

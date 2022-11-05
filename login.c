@@ -96,6 +96,16 @@ int carregaTelaLogin(){
 
 }
 
+char *getTypeCadastro(int type){
+
+    switch(type){
+        case 1: return "Funcionário";
+        case 2: return "Administrador";
+    }
+
+    return NULL;
+}
+
 //chega Login.
 //Retornos:
 //1 - correto

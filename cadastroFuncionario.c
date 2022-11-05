@@ -8,6 +8,8 @@
 #include <math.h>
 #include "dbFuncoes.h"
 
+//este script é responsável por cadastrar funcionários e administradores. O nome ficou apenas cadastroFuncionario porque não sei alterá-lo.
+
 struct Usuario{
     char *login;
     int type;
@@ -25,9 +27,9 @@ struct User{
 char *usuarioStructToLinhaCSV(struct Usuario usuario, char *var);
 char *userStructToLinhaCSV(struct User user, char *var);
 
-int escreveTelaCadastroFuncionario(){
+int escreveTelaCadastroUsuario(int type){
     system("cls");
-    printf("\n         ====== Cadastro -  Funcionário ====== \n ");
+    printf("\n         ====== Cadastro - %s  ====== \n ", getTypeCadastro(type));
 
     printf("\n   **************************************************\n");
     printf("   * Pressione '.' para voltar!                     *\n");
@@ -40,9 +42,8 @@ int escreveTelaCadastroFuncionario(){
 
 
 
-int cadastroFuncionarioTela(){
-    escreveTelaCadastroFuncionario();
-    int tipe = 1;
+int cadastroUsuarioTela(int type){
+    escreveTelaCadastroUsuario(type);
     char login[10];
     char senha[10];
     char senhaConfirmar[10];
@@ -143,8 +144,8 @@ int cadastroFuncionarioTela(){
 
 
     //vai ser salvo no arquivo de dados dos usuários
-    struct Usuario newUsuario = {login, 1, nome, sobrenome, cpf};
-    struct User newUser = {login, senha, 1};
+    struct Usuario newUsuario = {login, type, nome, sobrenome, cpf};
+    struct User newUser = {login, senha, type};
 
     char *csvUsuarioLine;
     char *csvUserLine;
