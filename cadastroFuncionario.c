@@ -150,8 +150,8 @@ int cadastroUsuarioTela(int type){
     char *csvUsuarioLine;
     char *csvUserLine;
 
-    csvUsuarioLine = usuarioStructToLinhaCSV(newUsuario, csvUsuarioLine);
-    csvUserLine = userStructToLinhaCSV(newUser, csvUserLine);
+    csvUsuarioLine = usuarioStructToLinhaCSV(newUsuario, &csvUsuarioLine);
+    csvUserLine = userStructToLinhaCSV(newUser, &csvUserLine);
 
     FILE *loginCredenciais = fopen(".\\DB\\loginCredentials.txt", "a");
     FILE *usuariosInformacoes = fopen(".\\DB\\usuariosInformacoes.txt", "a");
@@ -175,7 +175,7 @@ int cadastroUsuarioTela(int type){
 
 
 
-char *userStructToLinhaCSV(struct User user, char *var){
+char *userStructToLinhaCSV(struct User user, char* var){
     int sizeLogin = strlen(user.login);
     int sizeSenha = strlen(user.senha);
     int totalSize = sizeLogin+1+sizeSenha+1+1;
@@ -199,13 +199,13 @@ char *userStructToLinhaCSV(struct User user, char *var){
 
     var = malloc(strlen(line));
 
-    strcpy(var,line);
+    strcpy(var, line);
 
     return var;
 
 }
 
-char *usuarioStructToLinhaCSV(struct Usuario user, char *var){
+char *usuarioStructToLinhaCSV(struct Usuario user, char* var){
     int sizeLogin = strlen(user.login);
     int quatroBytes = 4;
     int sizeNome = strlen(user.nome);
@@ -247,7 +247,7 @@ char *usuarioStructToLinhaCSV(struct Usuario user, char *var){
 
     var = malloc(strlen(line));
 
-    strcpy(var,line);
+    strcpy(var, line);
 
     return var;
 }

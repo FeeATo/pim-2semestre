@@ -9,9 +9,12 @@ Cadastrar
 
 Consultas
 ---------
-- Consultar usuários
-- Gerar relatórios
-- Consultar relatórios
+- Consultar usuários cadastrador
+- Gerar relatórios de presença dos alunos (pegar vários logs de presença marcada e gerar um relatório)
+- Consultar relatórios de presença dos alunos (mostrar nome e path dos relatórios criados, abrir relatório selecionado)
 
+
+==============
 
 Gerenciamento
+-------------

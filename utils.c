@@ -133,6 +133,34 @@ int getSimOuNao()
     return (num);
 }
 
+int getSimOuNaoInt()
+{
+    //printf("%s", );
+    int num = 0, ch;
+     while(1) {
+        ch=getch();
+        if(ch==13){
+           return intYesOrNoFromCharInt(num);
+        } else{
+            if(ch==8) {
+                    printf("\b \b");
+            } else{
+                if(ch=='s' || ch=='n'){
+                    num = ch;
+                    printf("%c", ch);
+                }
+            }
+        }
+    }
+
+    return -1;
+}
+
+int intYesOrNoFromCharInt(int num){
+    if(num==110) return 0;
+    else return 1;
+}
+
 int intASCIIToInt(int intAsc){
     switch(intAsc){
         case 48: return 0;

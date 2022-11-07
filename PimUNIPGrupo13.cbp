@@ -31,6 +31,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="cadastroCliente.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cadastroCliente.h" />
 		<Unit filename="cadastroFuncionario.c">
 			<Option compilerVar="CC" />
 		</Unit>

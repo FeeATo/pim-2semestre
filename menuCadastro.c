@@ -19,6 +19,7 @@ int telaCadastro(){
         if(validoOuInvalido==0){
             int result = direcionaParaOpcaoDesejadaCadastro(telaCod);
             if(result==-1) return -1;
+            if(result==0) telaCadastro();
             break;
         } else{
             printf(" \n \033[0;31mOPÇÃO INVÁLIDA!");
@@ -32,7 +33,13 @@ int telaCadastro(){
 int direcionaParaOpcaoDesejadaCadastro(int telaCod){
    switch(telaCod){
         case 1:
-            cadastroUsuarioTela(1);
+            do{
+                if(cadastroUsuarioTela(1)){
+                        printf("Deseja cadastrar outro funcionáio? ");
+                        if(getSimOuNaoInt()==0)
+                            break;
+                }
+            } while(1);
             break;
         case 2:
             cadastroUsuarioTela(2);
