@@ -7,7 +7,7 @@ int salvaLinhaNoArquivo(char *linha, FILE *fp){
     if (fp == NULL)
     {
         printf("Error opening file!\n");
-        return 0;
+        return 1;
     }
 
     int result;

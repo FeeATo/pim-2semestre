@@ -15,7 +15,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1667769359 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\utils.c
+1667870872 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\utils.c
 	"time.h"
 	<string.h>
 	<stdio.h>
@@ -110,7 +110,7 @@
 
 1666489885 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\menugerenciamento.h
 
-1667769558 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\menucadastro.c
+1667873105 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\menucadastro.c
 	"utils.h"
 	"cadastroFuncionario.h"
 	"cadastroCliente.h"
@@ -127,14 +127,15 @@
 
 1666915831 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\cadastrofuncionario.h
 
-1667607935 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\dbfuncoes.c
+1667869859 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\dbfuncoes.c
 	"utils.h"
 
 1667267675 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\dbfuncoes.h
 
-1667782580 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\cadastrocliente.c
+1667873311 source:d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\cadastrocliente.c
 	"utils.h"
 	<stdlib.h>
+	"dbFuncoes.h"
 
 1667615244 d:\estudos\unip\semestre2\pim_project\pimunipgrupo13\cadastrocliente.h
 

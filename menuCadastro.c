@@ -35,17 +35,39 @@ int direcionaParaOpcaoDesejadaCadastro(int telaCod){
         case 1:
             do{
                 if(cadastroUsuarioTela(1)){
-                        printf("Deseja cadastrar outro funcionáio? ");
+                        printf("\n Deseja cadastrar outro funcionário? ");
                         if(getSimOuNaoInt()==0)
                             break;
+                } else{
+                    printf(" Erro inesperado no cadastro");
+                    break;
                 }
             } while(1);
             break;
         case 2:
-            cadastroUsuarioTela(2);
+            do{
+                if(cadastroUsuarioTela(2)){
+                    printf("\n Deseja cadastrar outro administrador? ");
+                    if(getSimOuNaoInt()==0)
+                        break;
+                } else{
+                    printf("Erro inesperado no cadastro");
+                    break;
+                }
+            } while(1);
             break;
         case 3:
-            cadastroClienteTela();
+            do{
+                if(cadastroClienteTela()){
+                    printf("\n Deseja cadastrar outro cliente? ");
+                    if(getSimOuNaoInt()==0)
+                        break;
+
+                } else{
+                    printf("Erro inesperado no cadastro");
+                    break;
+                }
+            } while(1);
             break;
         case 4:
             return -1;

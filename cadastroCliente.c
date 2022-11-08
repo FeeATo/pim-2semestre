@@ -1,7 +1,9 @@
 #include "utils.h"
 #include <stdlib.h>
+#include "dbFuncoes.h"
 
 struct Cliente separaValoresCliente(char *linha);
+char *clienteStructToLinhaCSV(struct Cliente cliente, char* var);
 
 struct Cliente{
  //1;11111111000111;infotera;infotera@email.com.br;1124217789;
@@ -31,30 +33,54 @@ int cadastroClienteTela(){
     escreveTelaCadastroCliente();
     int id;
     long long int cnpj;
-    char nome[20];
-    char *email;
+    char nome[30];
+    char email[30];
     long long int telefone;
 
     id = getNextId();
 
-    printf(" Nome da empresa: ");
+    printf("\n Nome da empresa: ");
     gets(nome);
+    nome[strlen(nome)]='\0';
+    char *nomePointer = nome;
 
     int existencia=0;
-    printf("\n");
     int allowedBackspaces=0;
 
     int i = 0;
     do{
         printf(" CNPJ: ");
         scanf("%lld", &cnpj);
-        if(checkCnpjExistence(cnpj)==0)
+        if(cnpj>10000000000000 && checkCnpjExistence(cnpj)==0)
             break;
     } while(1);
 
+    fflush(stdin);
+
+    printf(" Email: ");
+    gets(email);
+    email[strlen(email)]='\0';
+    char *emailPointer = email;
+
+
+    printf(" Telefone: ");
+    scanf("%lld", &telefone);
+
+     //1;11111111000111;infotera;infotera@email.com.br;1124217789;
+    struct Cliente cliente = {id, cnpj, nomePointer, emailPointer, telefone};
+    FILE *fileClientes = fopen(".\\DB\\clientesCredentials.txt", "a");
+
+    char *csvClienteLine = clienteStructToLinhaCSV(cliente, csvClienteLine);
+
+    if(salvaLinhaNoArquivo(csvClienteLine, fileClientes)){
+        fclose(fileClientes);
+        return 1;
+    }
 
 
 
+    fclose(fileClientes);
+    return 0;
 }
 
 int getNextId(){
@@ -165,4 +191,69 @@ struct Cliente separaValoresCliente(char *linha){
     struct Cliente cliente = {id,cnpj,nome,email,telefone};
 
     return cliente;
-};
+}
+
+char *clienteStructToLinhaCSV(struct Cliente cliente, char* var){
+    int sizeId = getNumberOfDigitsInInt(cliente.id);
+    int sizeCnpj = getNumberOfDigitsInLongLongInt(cliente.cnpj);
+    int sizeNome = strlen(cliente.nome);
+    int sizeEmail = strlen(cliente.email);
+    int sizeTelefone = getNumberOfDigitsInLongLongInt(cliente.telefone);
+
+    int totalSize = sizeId+1+sizeCnpj+1+sizeNome+1+sizeEmail+1+sizeTelefone;
+
+    char *line = malloc(totalSize);
+    int i = 0;
+    int j=0;
+    int id = cliente.id;
+    for(i=0; i<sizeId; i++){
+        line[i] = intToIntASCII(id%10);
+        id/=10;
+    }
+
+
+    line[i]=';';
+    long long int cnpj = cliente.cnpj;
+    for(j=14; j>0; j--){
+        line[i+j]= intToIntASCII(cnpj%10);
+        cnpj/=10;
+    }
+    i+=14;
+    i++;
+    line[i]=';';
+    i++;
+
+    for(j = 0; j<sizeNome;j++){
+        line[i] = cliente.nome[j];
+        i++;
+    }
+
+    line[i]=';';
+    i++;
+    for(j=0; j<sizeEmail; j++){
+        line[i] = cliente.email[j];
+        i++;
+    }
+    line[i]=';';
+
+    long long int telefone = cliente.telefone;
+    for(j=sizeTelefone; j>0; j--){
+        line[i+j]= intToIntASCII(telefone%10);
+        telefone/=10;
+
+    }
+
+    i+=sizeTelefone;
+    i++;
+    line[i]=';';
+    i++;
+    line[i]='\0';
+
+
+    var = malloc(strlen(line));
+
+    strcpy(var, line);
+
+    return var;
+
+}
