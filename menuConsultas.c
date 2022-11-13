@@ -30,7 +30,7 @@ int direcionaParaOpcaoDesejadaConsulta(int telaCod){
             consultaUsuarios(2);
             break;
         case 3:
-            printf("cadastro cliente");
+            consultaClientes();
             break;
         case 4:
             return -1;

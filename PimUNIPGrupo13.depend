@@ -213,7 +213,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1668292068 source:d:\estudos\unip\semestre2\pim_project\project_concertado\cadastrocliente.c
+1668378545 source:d:\estudos\unip\semestre2\pim_project\project_concertado\cadastrocliente.c
 	"utils.h"
 	<stdlib.h>
 	"dbFuncoes.h"
@@ -224,7 +224,7 @@
 
 1668292068 d:\estudos\unip\semestre2\pim_project\project_concertado\dbfuncoes.h
 
-1668304168 source:d:\estudos\unip\semestre2\pim_project\project_concertado\cadastrofuncionario.c
+1668305050 source:d:\estudos\unip\semestre2\pim_project\project_concertado\cadastrofuncionario.c
 	"utils.h"
 	"login.h"
 	<math.h>
@@ -234,7 +234,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1668302651 source:d:\estudos\unip\semestre2\pim_project\project_concertado\consultausuario.c
+1668378761 source:d:\estudos\unip\semestre2\pim_project\project_concertado\consultausuario.c
 	"utils.h"
 	<stdio.h>
 	<stdlib.h>
@@ -269,7 +269,7 @@
 
 1668292068 d:\estudos\unip\semestre2\pim_project\project_concertado\menugerenciamento.h
 
-1668304457 source:d:\estudos\unip\semestre2\pim_project\project_concertado\menucadastro.c
+1668376590 source:d:\estudos\unip\semestre2\pim_project\project_concertado\menucadastro.c
 	"utils.h"
 	"cadastroFuncionario.h"
 	"cadastroCliente.h"
@@ -278,13 +278,19 @@
 
 1668292068 d:\estudos\unip\semestre2\pim_project\project_concertado\cadastrocliente.h
 
-1668302503 source:d:\estudos\unip\semestre2\pim_project\project_concertado\menuconsultas.c
+1668377468 source:d:\estudos\unip\semestre2\pim_project\project_concertado\menuconsultas.c
 
 1668292068 source:d:\estudos\unip\semestre2\pim_project\project_concertado\menugerenciamento.c
 
-1668300873 source:d:\estudos\unip\semestre2\pim_project\project_concertado\utils.c
+1668376913 source:d:\estudos\unip\semestre2\pim_project\project_concertado\utils.c
 	"time.h"
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
+
+1668378754 source:d:\estudos\unip\semestre2\pim_project\project_concertado\consultacliente.c
+	"utils.h"
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
 

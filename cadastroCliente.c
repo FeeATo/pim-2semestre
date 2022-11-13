@@ -38,31 +38,78 @@ int cadastroClienteTela(){
 
     id = getNextId();
 
+    char ch=0;
+    int allowedBackspaces=0;
+    int i = 0;
     printf("\n Nome da empresa: ");
-    gets(nome);
+    do{
+        ch=getch();
+        if(ch==27)
+            return -1;
+        else if(ch==13){
+            break;
+        } else if(ch==8){
+            if(allowedBackspaces>0){
+                allowedBackspaces--;
+                nome[i--]=0;
+                printf("\b \b");
+            }
+        }
+        else{
+            printf("%c", ch);
+            nome[i++]=ch;
+            allowedBackspaces++;
+        }
+    } while(1);
     nome[strlen(nome)]='\0';
     char *nomePointer = nome;
 
+    printf("\n");
     int existencia=0;
-    int allowedBackspaces=0;
-
-    int i = 0;
+    allowedBackspaces=0;
+    i = 0;
+    ch=0;
     do{
+        if(i)
+            excluiLinha(1);
         printf(" CNPJ: ");
         scanf("%lld", &cnpj);
         if(cnpj>10000000000000 && checkCnpjExistence(cnpj)==0)
             break;
+
+        i++;
     } while(1);
 
     fflush(stdin);
 
+    allowedBackspaces=0;
+    i = 0;
+    ch=0;
     printf(" Email: ");
-    gets(email);
+    do{
+        ch=getch();
+        if(ch==27)
+            return -1;
+        else if(ch==13){
+            break;
+        } else if(ch==8){
+            if(allowedBackspaces>0){
+                allowedBackspaces--;
+                email[i--]=0;
+                printf("\b \b");
+            }
+        }
+        else{
+            printf("%c", ch);
+            email[i++]=ch;
+            allowedBackspaces++;
+        }
+    } while(1);
     email[strlen(email)]='\0';
     char *emailPointer = email;
 
 
-    printf(" Telefone: ");
+    printf("\n Telefone: ");
     scanf("%lld", &telefone);
 
      //1;11111111000111;infotera;infotera@email.com.br;1124217789;

@@ -13,8 +13,8 @@ struct Usuario{
 
 
 int *contaCaracteresCamposUsuarioLinha(char *linha, int* tamanho){
-    tamanho = malloc(15);
-    int count;
+    tamanho = malloc(20);
+    int count=0;
     int caractereIndex=0;
     for(int i=0; linha[i]!='\0'; i++){
         if(linha[i]!=';'){
@@ -142,7 +142,7 @@ int consultaUsuarios(int type){
 }
 
 void imprimeUsuario(struct Usuario usuario){
-    printf("\n       __________");
+    printf("\n\n       __________");
     printf("\n      | Usuário:      %s", usuario.login);
     printf("\n      | Nome:         %s", usuario.nome);
     printf("\n      | Sobrenome:    %s", usuario.sobrenome);

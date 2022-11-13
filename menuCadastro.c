@@ -14,7 +14,7 @@ int telaCadastro(){
 
         telaCod = intASCIIToInt(getOneIntegerOnly());
 
-        int validoOuInvalido = testaValidadeDaOpcao(telaCod);
+        int validoOuInvalido = testaValidadeDaOpcaoCadastro(telaCod);
 
         if(validoOuInvalido==0){
             int result = direcionaParaOpcaoDesejadaCadastro(telaCod);
@@ -66,11 +66,14 @@ int direcionaParaOpcaoDesejadaCadastro(int telaCod){
             break;
         case 3:
             do{
-                if(cadastroClienteTela()){
+                int result = cadastroClienteTela();
+                if(result>0){
                     printf("\n Deseja cadastrar outro cliente? (s/n) ");
                     if(getSimOuNaoInt()==0)
                         break;
 
+                } else if(result == -2){
+                    break;
                 } else{
                     printf("Erro inesperado no cadastro");
                     break;
