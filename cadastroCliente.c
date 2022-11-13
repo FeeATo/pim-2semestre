@@ -19,8 +19,7 @@ int escreveTelaCadastroCliente(){
     printf("\n         ====== Cadastro - Cliente  ====== \n ");
 
     printf("\n   **************************************************\n");
-    printf("   * Pressione '.' para voltar!                     *\n");
-    printf("   * Pressione ESC para reescrever o campo anterior *");
+    printf("   * Pressione ESC para voltar!                     *");
     printf("\n   **************************************************\n");
     printf("\n              Preencha os seguintes dados: \n");
     printf("");

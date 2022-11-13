@@ -14,4 +14,5 @@ int contaLinhasTxt(FILE *);
 char *pegaLinhaPorIndex(FILE *, int);
 void sobeLinha(int);
 char intToIntASCII(int);
+char* getTypeCadastro(int);
 #endif // UTILS_H_INCLUDED

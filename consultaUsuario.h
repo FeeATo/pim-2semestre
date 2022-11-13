@@ -1,0 +1,1 @@
+void carregaTelaConsultaUsuario(type int);

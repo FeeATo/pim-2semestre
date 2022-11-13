@@ -32,8 +32,7 @@ int escreveTelaCadastroUsuario(int type){
     printf("\n         ====== Cadastro - %s  ====== \n ", getTypeCadastro(type));
 
     printf("\n   **************************************************\n");
-    printf("   * Pressione '.' para voltar!                     *\n");
-    printf("   * Pressione ESC para reescrever o campo anterior *");
+    printf("   * Pressione ESC para voltar!                     *");
     printf("\n   **************************************************\n");
     printf("\n              Preencha os seguintes dados: \n");
     printf("");
@@ -48,14 +47,38 @@ int cadastroUsuarioTela(int type){
     char senha[10];
     char senhaConfirmar[10];
     char nome[20];
-    char sobrenome[20];
+    char sobrenome[50];
     long long int cpf;
 
     int existencia=0;
     printf("\n");
+
+    char ch='\0';
+    int allowedBackspaces=0;
+    int i=0;
     do{
         printf(" Login: ");
-        gets(login);
+        do{
+            ch=getch();
+            if(ch==27)
+                return -1;
+            else if(ch==13){
+                printf("\n");
+                break;
+            } else if(ch==8){
+                if(allowedBackspaces>0){
+                    allowedBackspaces--;
+                    login[i--]=0;
+                    printf("\b \b");
+                }
+            }
+            else{
+                printf("%c", ch);
+                login[i++]=ch;
+                allowedBackspaces++;
+            }
+        } while(1);
+        //gets(login);
         existencia = checaExistenciaLogin(login);
         if(existencia){
             printf("%s Login já existente!\n%s", TEXTO_VERDE, TEXTO_PRETO);
@@ -67,13 +90,56 @@ int cadastroUsuarioTela(int type){
     //checa se já existe um usuário com este login
     //checaExistenciaLogin(login);
 
-
+    ch=0;
+    allowedBackspaces=0;
+    i=0;
     printf(" Nome: ");
-    gets(nome);
+    do{
+        ch=getch();
+        if(ch==27)
+            return -1;
+        else if(ch==13){
+            printf("\n");
+            break;
+        } else if(ch==8){
+            if(allowedBackspaces>0){
+                allowedBackspaces--;
+                nome[i--]=0;
+                printf("\b \b");
+            }
+        }
+        else{
+            printf("%c", ch);
+            nome[i++]=ch;
+            allowedBackspaces++;
+        }
+    } while(1);
 
 
+    ch=0;
+    allowedBackspaces=0;
+    i=0;
     printf(" Sobrenome: ");
-    gets(sobrenome);
+    do{
+        ch=getch();
+        if(ch==27)
+            return -1;
+        else if(ch==13){
+            printf("\n");
+            break;
+        } else if(ch==8){
+            if(allowedBackspaces>0){
+                allowedBackspaces--;
+                sobrenome[i--]=0;
+                printf("\b \b");
+            }
+        }
+        else{
+            printf("%c", ch);
+            sobrenome[i++]=ch;
+            allowedBackspaces++;
+        }
+    } while(1);
 
     int repetCpf = 0;
     do{
@@ -86,14 +152,16 @@ int cadastroUsuarioTela(int type){
     fflush(stdin);
     printf(" Senha: "); //fazer botãozinho de ver senha
     //funcao de ler senha e escrever um asterisco
-    int i=0;
-    char ch;
-    int allowedBackspaces=0;
+    ch=0;
+    allowedBackspaces=0;
+    i=0;
     while(1) {
         ch=getch();
-        if(ch==13){
+        if(ch==13)
             break;
-        } else{
+        else if(ch==27)
+            return -2;
+        else{
             if(ch==8 && allowedBackspaces>0) {
                 senha[i];
                 i--;
@@ -111,7 +179,9 @@ int cadastroUsuarioTela(int type){
     }
     senha[i++] = '\0';
 
-
+    ch=0;
+    allowedBackspaces=0;
+    i=0;
     int reps=0;
     do{
         if(reps>0) printf(DELETA_LINHA);
@@ -120,9 +190,11 @@ int cadastroUsuarioTela(int type){
         allowedBackspaces=0;
         while(1) {
             ch=getch();
-            if(ch==13){
+            if(ch==13)
                 break;
-            } else{
+            else if(ch==27)
+                return -2;
+            else{
                 if(ch==8 && allowedBackspaces>0) {
                     senhaConfirmar[i];
                     i--;

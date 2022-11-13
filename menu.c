@@ -43,8 +43,6 @@ int testaValidadeDaOpcao(int opcao){
         case 1: return 0;
         case 2: return 0;
         case 3: return 0;
-        case 4: return 0;
-        case 5: return 0;
         default: return 1;
     }
 }
@@ -67,9 +65,6 @@ int direcionaParaOpcaoDesejada(int telaCod){
             if(result==-1)
                 return result;
             break;
-
-        case 4: break;
-        case 5: break;
         default:
             excluiLinha(1);
             break;
@@ -80,6 +75,4 @@ void escreveOpcoesDeNavegacao(){
     printf("\n 1. Cadastrar novo usuário");
     printf("\n 2. Consultas");
     printf("\n 3. Gerenciamento");
-    printf("\n 4. Sei lá");
-    printf("\n 5. Não sei ");
 }

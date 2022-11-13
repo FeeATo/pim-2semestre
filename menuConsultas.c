@@ -12,7 +12,6 @@ int telaConsultas(){
         if(validoOuInvalido==0){
             int result = direcionaParaOpcaoDesejadaConsulta(telaCod);
             if(result==-1) return -1;
-            break;
         } else{
             printf(" \n \033[0;31mOPÇÃO INVÁLIDA!");
             timer_util(1, 0);
@@ -25,10 +24,10 @@ int telaConsultas(){
 int direcionaParaOpcaoDesejadaConsulta(int telaCod){
    switch(telaCod){
         case 1:
-            printf("cadastro funcionanrio");
+            consultaUsuarios(1);
             break;
         case 2:
-            printf("cadastro administrador");
+            consultaUsuarios(2);
             break;
         case 3:
             printf("cadastro cliente");
@@ -39,6 +38,8 @@ int direcionaParaOpcaoDesejadaConsulta(int telaCod){
             excluiLinha(1);
             break;
     }
+
+    return 0;
 }
 
 void escreverOpcoesDeConsulta(){

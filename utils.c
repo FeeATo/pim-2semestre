@@ -244,7 +244,6 @@ char *pegaLinhaPorIndex(FILE *fp, int index){
         if (c == '\n'){
             // Increment count if this character is newline
             if(count==index){
-
                 break;
             }
             count++;
@@ -253,7 +252,6 @@ char *pegaLinhaPorIndex(FILE *fp, int index){
         else {
             normalCaracter++;
             indexFimDaLinha=normalCaracter;
-
         }
     }
 
@@ -266,7 +264,6 @@ char *pegaLinhaPorIndex(FILE *fp, int index){
         if(count==index){
             *(linhaCerta+i) = c;
             if(i==indexFimDaLinha){
-
                 break;
             }
             i++;
@@ -303,7 +300,6 @@ char *pegaTamanhoLinhaPorIndex(FILE *fp, int index){
         if (c == '\n'){
             // Increment count if this character is newline
             if(count==index){
-
                 break;
             }
             count++;
@@ -312,7 +308,6 @@ char *pegaTamanhoLinhaPorIndex(FILE *fp, int index){
         else {
             normalCaracter++;
             indexFimDaLinha=normalCaracter;
-
         }
     }
 
@@ -333,7 +328,6 @@ char *pegaTamanhoLinhaPorIndex(FILE *fp, int index){
         if (c == '\n'){
             count++;
         }
-
 
     }
 
@@ -417,3 +411,22 @@ int contaCaracters(char *p){
     return count;
 }
 
+char *getTypeCadastro(int type){
+
+    switch(type){
+        case 1: return "Funcionário";
+        case 2: return "Administrador";
+    }
+
+    return NULL;
+}
+
+char *getTypeCadastroToPointer(int type, char *pointer){
+
+    switch(type){
+        case 1: return strcpy(pointer,"Funcionário");
+        case 2: return strcpy(pointer,"Administrador");
+    }
+
+    return pointer;
+}

@@ -39,6 +39,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="cadastroFuncionario.h" />
+		<Unit filename="consultaUsuario.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="consultaUsuario.h" />
 		<Unit filename="dbFuncoes.c">
 			<Option compilerVar="CC" />
 		</Unit>
