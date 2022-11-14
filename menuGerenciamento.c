@@ -31,9 +31,6 @@ int direcionaParaOpcaoDesejadaGerenciamento(int telaCod){
             printf("Gerenciamento administrador");
             break;
         case 3:
-            printf("Gerenciamento cliente");
-            break;
-        case 4:
             return -1;
         default:
             excluiLinha(1);
@@ -42,11 +39,10 @@ int direcionaParaOpcaoDesejadaGerenciamento(int telaCod){
 }
 
 void escreverOpcoesDeGerenciamento(){
-    printf("\n ====== Menu - Consulta ====== \n ");
+    printf("\n =========== Menu - Gerenciamento =========== \n ");
     printf("\n 1. Acessar arquivos raw");
-    printf("\n 2. Alterar fonte de dados");
-    printf("\n 3. Logs");
-    printf("\n 4. Voltar");
+    printf("\n 2. Logs");
+    printf("\n 3. Voltar");
 }
 
 int testaValidadeDaOpcaoGerenciamento(int opcao){
@@ -54,7 +50,6 @@ int testaValidadeDaOpcaoGerenciamento(int opcao){
         case 1: return 0;
         case 2: return 0;
         case 3: return 0;
-        case 4: return 0;
         default: return 1;
     }
 }

@@ -93,7 +93,7 @@ int direcionaParaOpcaoDesejadaCadastro(int telaCod){
 }
 
 void escreverOpcoesDeCadastro(){
-    printf("\n ====== Menu - Cadastro ====== \n ");
+    printf("\n ============= Menu - Cadastro ============== \n ");
     printf("\n 1. Cadastrar novo funcionário");
     printf("\n 2. Cadastrar novo administrador");
     printf("\n 3. Cadastrar novo cliente");

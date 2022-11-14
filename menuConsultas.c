@@ -43,7 +43,7 @@ int direcionaParaOpcaoDesejadaConsulta(int telaCod){
 }
 
 void escreverOpcoesDeConsulta(){
-    printf("\n ====== Menu - Consulta ====== \n ");
+    printf("\n ============= Menu - Consulta ============== \n ");
     printf("\n 1. Consultar funcionários");
     printf("\n 2. Consultar administradores");
     printf("\n 3. Consultar clientes");

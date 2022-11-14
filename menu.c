@@ -10,7 +10,7 @@ void carregaTelaMenu(int idUser){
     int telaCod=-1;
     while(1){
         system("cls");
-        printf("\n ========== Menu ========== \n ");
+        printf("\n =================== Menu =================== \n ");
 
         escreveOpcoesDeNavegacao();
         printf("\n\n Digite o número da tela que deseja acessar: ");
