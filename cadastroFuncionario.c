@@ -43,11 +43,21 @@ int escreveTelaCadastroUsuario(int type){
 
 int cadastroUsuarioTela(int type){
     escreveTelaCadastroUsuario(type);
-    char login[10];
-    char senha[10];
-    char senhaConfirmar[10];
-    char nome[20];
-    char sobrenome[50];
+    char loginAux[10];
+    char *login;
+
+    char senhaAux[10];
+    char *senha;
+
+    char senhaConfirmarAux[10];
+    char *senhaConfirmar;
+
+    char nomeAux[20];
+    char *nome;
+
+    char sobrenomeAux[50];
+    char *sobrenome;
+
     long long int cpf;
 
     int existencia=0;
@@ -68,17 +78,20 @@ int cadastroUsuarioTela(int type){
             } else if(ch==8){
                 if(allowedBackspaces>0){
                     allowedBackspaces--;
-                    login[i--]=0;
+                    loginAux[i--]=0;
                     printf("\b \b");
                 }
             }
             else{
                 printf("%c", ch);
-                login[i++]=ch;
+                loginAux[i++]=ch;
                 allowedBackspaces++;
             }
         } while(1);
         //gets(login);
+        login = malloc(i);
+        strcpy(login, loginAux);
+        login[i]='\0';
         existencia = checaExistenciaLogin(login);
         if(existencia){
             printf("%s Login já existente!\n%s", TEXTO_VERDE, TEXTO_PRETO);
@@ -104,17 +117,20 @@ int cadastroUsuarioTela(int type){
         } else if(ch==8){
             if(allowedBackspaces>0){
                 allowedBackspaces--;
-                nome[i--]=0;
+                nomeAux[i--]=0;
                 printf("\b \b");
             }
         }
         else{
             printf("%c", ch);
-            nome[i++]=ch;
+            nomeAux[i++]=ch;
             allowedBackspaces++;
         }
     } while(1);
 
+    nome = malloc(i);
+    nome[i]='\0';
+    strcpy(nome, nomeAux);
 
     ch=0;
     allowedBackspaces=0;
@@ -130,16 +146,20 @@ int cadastroUsuarioTela(int type){
         } else if(ch==8){
             if(allowedBackspaces>0){
                 allowedBackspaces--;
-                sobrenome[i--]=0;
+                sobrenomeAux[i--]=0;
                 printf("\b \b");
             }
         }
         else{
             printf("%c", ch);
-            sobrenome[i++]=ch;
+            sobrenomeAux[i++]=ch;
             allowedBackspaces++;
         }
     } while(1);
+
+    sobrenome = malloc(i);
+    sobrenome[i] = '\0';
+    strcpy(sobrenome, sobrenomeAux);
 
     int repetCpf = 0;
     do{
@@ -163,21 +183,23 @@ int cadastroUsuarioTela(int type){
             return -2;
         else{
             if(ch==8 && allowedBackspaces>0) {
-                senha[i];
+                senhaAux[i];
                 i--;
                 allowedBackspaces--;
                 printf("\b \b");
             } else if(ch==8 && allowedBackspaces==0){
                 //não faça nada
             } else{
-                senha[i] = ch;
-                i++;
+                senhaAux[i++] = ch;
                 allowedBackspaces++;
                 printf("*");
             }
         }
     }
-    senha[i++] = '\0';
+
+    senha = malloc(i);
+    strcpy(senha, senhaAux);
+    senha[i] = '\0';
 
     ch=0;
     allowedBackspaces=0;
@@ -196,14 +218,14 @@ int cadastroUsuarioTela(int type){
                 return -2;
             else{
                 if(ch==8 && allowedBackspaces>0) {
-                    senhaConfirmar[i];
+                    senhaConfirmarAux[i];
                     i--;
                     allowedBackspaces--;
                     printf("\b \b");
                 } else if(ch==8 && allowedBackspaces==0){
                     //não faça nada
                 } else{
-                    senhaConfirmar[i] = ch;
+                    senhaConfirmarAux[i] = ch;
                     i++;
                     allowedBackspaces++;
                     printf("*");
@@ -211,7 +233,9 @@ int cadastroUsuarioTela(int type){
             }
         }
         reps++;
-        senhaConfirmar[i++]='\0';
+        senhaConfirmar = malloc(i);
+        senhaConfirmar[i]='\0';
+        strcpy(senhaConfirmar, senhaConfirmarAux);
     } while(stringComp(strlen(senha), senha, senhaConfirmar)!=1);
 
 

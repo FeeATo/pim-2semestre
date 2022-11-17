@@ -4,7 +4,7 @@
 
 void escreveOpcoesDeNavegacao();
 
-int telaCadastro(){
+int telaCadastro(int typeUser){
     int telaCod=-1;
 
     while(1){
@@ -17,9 +17,9 @@ int telaCadastro(){
         int validoOuInvalido = testaValidadeDaOpcaoCadastro(telaCod);
 
         if(validoOuInvalido==0){
-            int result = direcionaParaOpcaoDesejadaCadastro(telaCod);
+            int result = direcionaParaOpcaoDesejadaCadastro(telaCod, typeUser);
             if(result==-1) return -1;
-            if(result==0) telaCadastro();
+            if(result==0) telaCadastro(typeUser);
             break;
         } else{
             printf(" \n \033[0;31mOPÇÃO INVÁLIDA!");
@@ -30,7 +30,7 @@ int telaCadastro(){
     }
 }
 
-int direcionaParaOpcaoDesejadaCadastro(int telaCod){
+int direcionaParaOpcaoDesejadaCadastro(int telaCod, int typeUser){
    switch(telaCod){
         case 1:
             do{
@@ -49,20 +49,25 @@ int direcionaParaOpcaoDesejadaCadastro(int telaCod){
             } while(1);
             break;
         case 2:
-            do{
-                int result = cadastroUsuarioTela(2);
-                if(result>0){
-                    printf("\n Deseja cadastrar outro administrador? (s/n) ");
-                    if(getSimOuNaoInt()==0)
+            if(typeUser>1){
+                do{
+                    int result = cadastroUsuarioTela(2);
+                    if(result>0){
+                        printf("\n Deseja cadastrar outro administrador? (s/n) ");
+                        if(getSimOuNaoInt()==0)
+                            break;
+                    } else if(result ==-2){
                         break;
-                } else if(result ==-2){
-                    break;
-                }
-                else{
-                    printf(" Erro inesperado no cadastro");
-                    break;
-                }
-            } while(1);
+                    }
+                    else{
+                        printf(" Erro inesperado no cadastro");
+                        break;
+                    }
+                } while(1);
+            } else{
+                printaUsuarioSemPrivilegioMessage();
+                break;
+            }
             break;
         case 3:
             do{

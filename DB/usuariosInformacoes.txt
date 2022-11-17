@@ -2,3 +2,5 @@ master;3;master;master;51099188806
 MiguelFunc;1;Miguel;Alota Teles;51099188806
 JessiFunc;1;Jessica;Soares da Silva;25631478912
 MiguelAdm;2;Miguel;Alota Reis;51099188806
+MiguelFunc2;1;Miguel;Alota Teles;51099188806
+JessicaAdm;2;Jessica;Reis Valesco;51099188806

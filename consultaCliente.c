@@ -127,7 +127,7 @@ int consultaClientes(){
 
     //se não houver nenhum usuário do tipo, exibirá esta mensagem
     if(count==0){
-        printf("\n            Nenhum cliente cadastrado!");
+        printf("\n\n            Nenhum cliente cadastrado!");
     }
 
     printf("\n\n\n Pressione qualquer tecla para voltar.");
@@ -145,16 +145,15 @@ int consultaClientes(){
 };*/
 
 void imprimeCliente(struct Cliente cliente){
-    printf("\n\n       __________");
+    printf("\n       __________");
     printf("\n      | Id:        %d", cliente.id);
     printf("\n      | Nome:      %s", cliente.nome);
     printf("\n      | Email:     %s", cliente.email);
     printf("\n      | Telefone:  %lld", cliente.telefone);
-    printf("\n      | CNPJ:      %lld", cliente.cnpj);
+    printf("\n      | CNPJ:      %lld\n", cliente.cnpj);
 }
 
 void carregaTelaConsultaCliente(int type){
     system("cls");
-    printf("\n         ====== Consulta - Cliente  ====== \n ");
-    printf("\n");
+    printf("\n         ====== Consulta - Cliente  ====== ");
 }

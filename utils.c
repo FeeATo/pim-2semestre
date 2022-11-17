@@ -19,6 +19,14 @@
 
 }*/
 
+struct UsuarioUtils{
+    char *login;
+    int type;
+    char *nome;
+    char *sobrenome;
+    long long int cpf;
+};
+
 int getOneIntegerOnly()
 {
     //printf("%s", );
@@ -429,4 +437,10 @@ char *getTypeCadastroToPointer(int type, char *pointer){
     }
 
     return pointer;
+}
+
+void printaUsuarioSemPrivilegioMessage(){
+    printf(" \n \033[0;31mACESSO NEGADO, USUÁRIO SEM PRIVILÉGIO. \033[0m");
+    timer_util(2, 0);
+    excluiLinha(2);
 }

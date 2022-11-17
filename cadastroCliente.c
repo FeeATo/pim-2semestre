@@ -1,6 +1,11 @@
 #include "utils.h"
 #include <stdlib.h>
 #include "dbFuncoes.h"
+#define CURSOR_CIMA "\033[A"
+#define DELETA_LINHA "\033[0;32m"
+#define TEXTO_VERMELHO "\033[32m"
+#define TEXTO_PRETO "\033[0m"
+#define TEXTO_VERDE "\033[31m"
 
 struct Cliente separaValoresCliente(char *linha);
 char *clienteStructToLinhaCSV(struct Cliente cliente, char* var);
@@ -71,12 +76,14 @@ int cadastroClienteTela(){
     ch=0;
     do{
         if(i)
-            excluiLinha(1);
+            excluiLinha(2);
         printf(" CNPJ: ");
         scanf("%lld", &cnpj);
         if(cnpj>10000000000000 && checkCnpjExistence(cnpj)==0)
             break;
 
+        printf("%s CNPJ já cadastrado!\n%s", TEXTO_VERDE, TEXTO_PRETO);
+        timer_util(1,0);
         i++;
     } while(1);
 

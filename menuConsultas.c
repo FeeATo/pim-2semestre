@@ -1,4 +1,4 @@
-int telaConsultas(){
+int telaConsultas(int typeUser){
     int telaCod=-1;
 
     while(1){
@@ -10,7 +10,7 @@ int telaConsultas(){
         int validoOuInvalido = testaValidadeDaOpcaoConsulta(telaCod);
 
         if(validoOuInvalido==0){
-            int result = direcionaParaOpcaoDesejadaConsulta(telaCod);
+            int result = direcionaParaOpcaoDesejadaConsulta(telaCod, typeUser);
             if(result==-1) return -1;
         } else{
             printf(" \n \033[0;31mOPÇÃO INVÁLIDA!");
@@ -21,13 +21,19 @@ int telaConsultas(){
     }
 }
 
-int direcionaParaOpcaoDesejadaConsulta(int telaCod){
+int direcionaParaOpcaoDesejadaConsulta(int telaCod, int typeUser){
    switch(telaCod){
         case 1:
-            consultaUsuarios(1);
+            if(typeUser>1)
+                consultaUsuarios(1);
+            else
+                printaUsuarioSemPrivilegioMessage();
             break;
         case 2:
-            consultaUsuarios(2);
+            if(typeUser>1)
+                consultaUsuarios(2);
+            else
+                printaUsuarioSemPrivilegioMessage();
             break;
         case 3:
             consultaClientes();

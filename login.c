@@ -7,7 +7,7 @@
 
 const char LOGIN[10] = "TEST";
 const char PASSWORD[10] = "1234";
-const int ID_USER = 1;
+const int typeUser = 1;
 
 struct User{
     char *login;
@@ -62,14 +62,14 @@ int carregaTelaLogin(){
 
         //maskPassword();
         timer_util(2, 1);
-        int check = checkLogin(login_enter, senha_enter);
-        if(check==1){
+        int userType = checkLogin(login_enter, senha_enter);
+        if(userType!=0){
 
             printf("\n %s%sLogin correto  \n", CURSOR_CIMA, DELETA_LINHA);
             printf("\033[0m");
             timer_util(1,1);
 
-            return ID_USER;
+            return userType;
             break;
         }
         else{
@@ -127,7 +127,7 @@ int checkLogin(char login[10], char pwd[10]){
         if(loginComp == 1 && pwdComp == 1){
             fclose(fp);
             typeLogin = myUser.type;
-            return 1;
+            return myUser.type;
         } else{
             continue;
         }
