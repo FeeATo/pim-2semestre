@@ -12,7 +12,7 @@ int telaGerenciamento(){
         if(validoOuInvalido==0){
             int result = direcionaParaOpcaoDesejadaGerenciamento(telaCod);
             if(result==-1) return -1;
-            break;
+            if(result>0) break;
         } else{
             printf(" \n \033[0;31mOPÇÃO INVÁLIDA!");
             timer_util(1, 0);
@@ -25,10 +25,11 @@ int telaGerenciamento(){
 int direcionaParaOpcaoDesejadaGerenciamento(int telaCod){
    switch(telaCod){
         case 1:
-            printf("Gerenciamento funcionanrio");
+            openDirectory(".\\DB\"");
+            return 0;
             break;
         case 2:
-            printf("Gerenciamento administrador");
+            openDirectory(".\\DB\\logs\"");
             break;
         case 3:
             return -1;

@@ -1,4 +1,4 @@
-#include "time.h"
+#include <time.h>
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,6 +7,8 @@
 #define TEXTO_VERMELHO "\033[31m"
 #define TEXTO_PRETO "\033[0m"
 #define TEXTO_VERDE "\033[32m"
+
+
 
 //atribui valor a uma String com base em outra String, não funciona ainda pq não sei ponteiros
 /*char[20] atribuiArray(char target[20], char str[20], int size){
@@ -25,6 +27,14 @@ struct UsuarioUtils{
     char *nome;
     char *sobrenome;
     long long int cpf;
+};
+
+struct Cliente{
+    int id;
+    long long int cnpj;
+    char *nome;
+    char *email;
+    long long int telefone;
 };
 
 int getOneIntegerOnly()
@@ -140,8 +150,7 @@ char *readPasswordAndMaskDigited(){
     return senha;
 }
 
-int getSimOuNao()
-{
+int getSimOuNao(){
     //printf("%s", );
     int num = 0, ch;
      while(1) {
@@ -163,8 +172,7 @@ int getSimOuNao()
     return (num);
 }
 
-int getSimOuNaoInt()
-{
+int getSimOuNaoInt() {
     //printf("%s", );
     int num = 0, ch;
      while(1) {
@@ -407,8 +415,6 @@ int stringComp(int size, char str1[], char str2[]){
     return ret;
 }
 
-
-
 int contaCaracters(char *p){
     int count=0;
     char *p1 = p;
@@ -443,4 +449,32 @@ void printaUsuarioSemPrivilegioMessage(){
     printf(" \n \033[0;31mACESSO NEGADO, USUÁRIO SEM PRIVILÉGIO. \033[0m");
     timer_util(2, 0);
     excluiLinha(2);
+}
+
+void openDirectory(char *endereco){
+    char command[40]="start \"\" \"";
+    strcat(command, endereco);
+   system(command);
+}
+
+int contaCasasDecimais(int number){
+    int count = 1;
+    while((number/10)>0){
+        count++;
+        number/=10;
+    }
+
+
+    return count;
+}
+
+int contaCasasDecimaisLong(long long int number){
+    int count = 1;
+    while((number/10)>0){
+        count++;
+        number/=10;
+    }
+
+
+    return count;
 }

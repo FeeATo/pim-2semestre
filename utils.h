@@ -1,5 +1,3 @@
-#ifndef UTILS_H_INCLUDED
-#define UTILS_H_INCLUDED
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -15,4 +13,5 @@ char *pegaLinhaPorIndex(FILE *, int);
 void sobeLinha(int);
 char intToIntASCII(int);
 char* getTypeCadastro(int);
-#endif // UTILS_H_INCLUDED
+int contaCasasDecimais(int);
+

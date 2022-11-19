@@ -132,6 +132,7 @@ int consultaClientes(){
 
     printf("\n\n\n Pressione qualquer tecla para voltar.");
     getch();
+    fclose(usuariosInformacoes);
     return 0;
 
 }
