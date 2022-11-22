@@ -168,11 +168,15 @@ int gerarRelatorioClientes(){
         }
     }
 
-    system("cls");
-    printf("\n %s Relatório gerado com sucesso! %s \n", TEXTO_VERDE, TEXTO_PRETO);
-    timer_util(2,0);
     fclose(clientesInformacoes);
     fclose(relatorio);
+
+    system("cls");
+    printf("\n %s Relatório gerado com sucesso!%s \n", TEXTO_VERDE, TEXTO_PRETO);
+    printf("\n  Deseja acessar o arquivo gerado? (s/n) ");
+    if(getSimOuNaoInt()==1)
+        openDirectory(".\\DB\\relatorios\"");
+
 
     return 1;
 }

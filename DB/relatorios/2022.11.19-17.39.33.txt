@@ -1,0 +1,68 @@
+
+ ------------------------------------------------
+ ------- RELATÓRIO - CLIENTES CADASTRADOS -------
+ ------------------------------------------------
+
+
+       __________
+      | Id:        1
+      | Nome:      infotera
+      | Email:     infotera@email.com.br
+      | Telefone:  1124217789
+      | CNPJ:      11111111000111
+
+       __________
+      | Id:        2
+      | Nome:      Miguel INC.
+      | Email:     miguel@empresa.com.br
+      | Telefone:  1124217789
+      | CNPJ:      11445522336677
+
+       __________
+      | Id:        3
+      | Nome:      mIguel inc 2
+      | Email:     miguel@empresa.com.br
+      | Telefone:  1124217789
+      | CNPJ:      11445879652358
+
+       __________
+      | Id:        4
+      | Nome:      Miguel INC 3
+      | Email:     miguel@teles.com.br
+      | Telefone:  1124217789
+      | CNPJ:      14528796325689
+
+       __________
+      | Id:        5
+      | Nome:      Miguel INC 4
+      | Email:     miguel@teles.com.br
+      | Telefone:  1124217789
+      | CNPJ:      11452369874586
+
+       __________
+      | Id:        6
+      | Nome:      Empresa dois
+      | Email:     empresadois@gmail.com
+      | Telefone:  1124217789
+      | CNPJ:      11111122223334
+
+       __________
+      | Id:        7
+      | Nome:      Empresa tres
+      | Email:     empresatres@gmail.com
+      | Telefone:  1124217789
+      | CNPJ:      12345678912345
+
+       __________
+      | Id:        8
+      | Nome:      Empresa quatro
+      | Email:     empresaquatro@gmail.com
+      | Telefone:  1124217789
+      | CNPJ:      12457896589658
+
+       __________
+      | Id:        9
+      | Nome:      Empresa 5
+      | Email:     email@empresa5.com
+      | Telefone:  1124217789
+      | CNPJ:      23698561591591
