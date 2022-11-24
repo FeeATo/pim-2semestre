@@ -11,7 +11,7 @@ struct Usuario{
     long long int cpf;
 };
 
-
+//conta número de caracteres DE CADA CAMPO de uma linha do arquivo de usuários cadastrados
 int *contaCaracteresCamposUsuarioLinha(char *linha, int* tamanho){
     tamanho = malloc(20);
     int count=0;
@@ -33,7 +33,7 @@ int *contaCaracteresCamposUsuarioLinha(char *linha, int* tamanho){
     return tamanho;
 }
 
-
+//retorna uma struct com base em uma linha CSV
 struct Usuario separaValoresUsuarioCSVLinha(char *linha, struct Usuario usuario){
     int *tamanhos;
     tamanhos = contaCaracteresCamposUsuarioLinha(linha, tamanhos);
@@ -105,7 +105,8 @@ struct Usuario separaValoresUsuarioCSVLinha(char *linha, struct Usuario usuario)
     return usuario;
 }
 
-//função principal
+////////////FUNÇÃO PRINCIPAL////////////
+//mostra os usuários já cadastrados com base em seu tipo
 int consultaUsuarios(int type){
 
     carregaTelaConsultaUsuario(type);

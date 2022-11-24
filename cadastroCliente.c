@@ -11,7 +11,6 @@ struct Cliente separaValoresCliente(char *linha);
 char *clienteStructToLinhaCSV(struct Cliente cliente, char* var);
 
 struct Cliente{
- //1;11111111000111;infotera;infotera@email.com.br;1124217789;
     int id;
     long long int cnpj;
     char *nome;
@@ -31,7 +30,10 @@ int escreveTelaCadastroCliente(){
 
 }
 
-//main deste script
+////////////FUNÇÃO PRINCIPAL////////////
+//lê dados digitados pelo usuário
+//retorna 1 se cliente cadastrado com sucesso
+//retorna 0 se ocorreu erro ao salvar usuário
 int cadastroClienteTela(){
 
     escreveTelaCadastroCliente();
@@ -136,6 +138,7 @@ int cadastroClienteTela(){
     return 0;
 }
 
+//pega ID do próximo cliente a ser cadastrado
 int getNextId(){
     FILE *fileClientes = fopen(".\\DB\\clientesCredentials.txt", "r");
     int lastIndex = contaLinhasTxt(fileClientes)-1;
@@ -145,6 +148,7 @@ int getNextId(){
     return id;
 }
 
+//pega o ID da linha passada como parâmetro
 int getIdFromLinha(char *linha){
     int i=0;
     char ch;
@@ -160,7 +164,7 @@ int getIdFromLinha(char *linha){
 }
 
 
-//retorna 1 se já existir e 0 se não existir
+//retorna 1 se CNPJ já foi cadastrado e 0 se não.
 int checkCnpjExistence(long long int cnpj){
     FILE *fileClientes = fopen(".\\DB\\clientesCredentials.txt", "r");
 
@@ -176,6 +180,7 @@ int checkCnpjExistence(long long int cnpj){
 
 }
 
+//retorna uma struct Cliente com base em uma linha passada como parâmetro
 struct Cliente separaValoresCliente(char *linha){
     int id;
     char idArrChar[4];
@@ -246,6 +251,7 @@ struct Cliente separaValoresCliente(char *linha){
     return cliente;
 }
 
+//retorna uma linha com base em uma struct Cliente passada como parâmetro
 char *clienteStructToLinhaCSV(struct Cliente cliente, char* var){
     int sizeId = getNumberOfDigitsInInt(cliente.id);
     int sizeCnpj = getNumberOfDigitsInLongLongInt(cliente.cnpj);

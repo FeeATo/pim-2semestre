@@ -1,3 +1,5 @@
+
+////////////FUNÇÃO PRINCIPAL////////////////
 int telaGerenciamento(){
     int telaCod=-1;
 

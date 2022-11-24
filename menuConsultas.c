@@ -18,6 +18,8 @@ struct Cliente{
     long long int telefone;
 };
 
+////////////FUNÇÃO PRINCIPAL////////////
+//mostra opções de consulta, valida opção digitada e direciona para a escolhida.
 int telaConsultas(int typeUser){
     int telaCod=-1;
 
@@ -41,6 +43,7 @@ int telaConsultas(int typeUser){
     }
 }
 
+//direciona para opção digitada
 int direcionaParaOpcaoDesejadaConsulta(int telaCod, int typeUser){
    switch(telaCod){
         case 1:
@@ -79,6 +82,7 @@ void escreverOpcoesDeConsulta(){
     printf("\n 5. Voltar");
 }
 
+//salva uma struct Cliente em um relatório .txt
 int salvaInformacaoNoArquivo(struct Cliente cliente, FILE *relatorio){
     salvaLinhaNoArquivo("", relatorio);
     salvaLinhaNoArquivo("       __________", relatorio);
@@ -106,6 +110,7 @@ int salvaInformacaoNoArquivo(struct Cliente cliente, FILE *relatorio){
     salvaLinhaNoArquivo(linhaCNPJ, relatorio);
 }
 
+//cria um novo arquivo relatório com a data atual como nome.
 int gerarRelatorioClientes(){
 
     time_t t = time(NULL);
@@ -188,6 +193,7 @@ int desenhaCabecalhoRelatorio(FILE *relatorio){
     salvaLinhaNoArquivo("", relatorio);
 }
 
+//testa validade da opção digitada
 int testaValidadeDaOpcaoConsulta(int opcao){
     switch(opcao){
         case 1: return 0;

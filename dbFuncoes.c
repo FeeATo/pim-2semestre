@@ -1,5 +1,6 @@
 #include "utils.h"
 
+//Script util que salva informações em arquivos
 
 //retorna 1 se deu certo e 0 se deu erro
 int salvaLinhaNoArquivo(char *linha, FILE *fp){

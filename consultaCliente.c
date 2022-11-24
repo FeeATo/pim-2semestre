@@ -11,6 +11,7 @@ struct Cliente{
     long long int telefone;
 };
 
+//conta número de caracteres DE CADA CAMPO de uma linha do arquivo de clientes cadastrados
 int *contaCaracteresCamposClienteLinha(char *linha, int* tamanho){
     tamanho = malloc(20);
     int count=0;
@@ -35,6 +36,7 @@ int *contaCaracteresCamposClienteLinha(char *linha, int* tamanho){
     return tamanho;
 }
 
+//retorna uma struct com base em uma linha no formato CSV passada como parâmetro
 struct Cliente separaValoresClienteCSVLinha(char *linha, struct Cliente cliente){
     int *tamanhos;
     tamanhos = contaCaracteresCamposClienteLinha(linha, tamanhos);
@@ -107,8 +109,9 @@ struct Cliente separaValoresClienteCSVLinha(char *linha, struct Cliente cliente)
     return cliente;
 }
 
-//separaValoresClientesCSVLinha
 
+////////////FUNÇÃO PRINCIPAL////////////
+//mostra informações dos clientes cadastrados
 int consultaClientes(){
 
     carregaTelaConsultaCliente();

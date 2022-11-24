@@ -23,7 +23,9 @@ struct User separaValores(char *linha);
 
 int typeLogin;
 
+////////////FUNÇÃO PRINCIPAL DO SCRIPT////////////
 //carrega a tela de login e atribui os valores de login digitados pelo usuário às variáveis para serem comparadas
+//retorna 0 se o login for correto e 1 se o usuário errar a senha e não quiser tentar novamente
 int carregaTelaLogin(){
     while(1){
         system("cls");
@@ -62,12 +64,12 @@ int carregaTelaLogin(){
 
         //maskPassword();
         timer_util(2, 1);
-        int userType = checkLogin(login_enter, senha_enter);
+        int userType = checkLogin(login_enter, senha_enter); //função em login.c compara login com todos os salvos. Se não corresponder a nenhum, retorna 0, se não retorna o tipo do usuário
         if(userType!=0){
 
             printf("\n %s%sLogin correto  \n", CURSOR_CIMA, DELETA_LINHA);
             printf("\033[0m");
-            timer_util(1,1);
+            timer_util(1,1); //função em utils.c - conta 1 segundo (primeiro parâmetro) e mostra uma mensagem de Loading (booleano segundo parâmetro)
 
             return userType;
             break;
@@ -97,12 +99,10 @@ int carregaTelaLogin(){
 }
 
 
-
-//chega Login.
+//checa Login.
 //Retornos:
-//1 - correto
-//2 - login incorreto
-//3 - senha incorreta
+//>0 - correto - retorna tipo do usuário
+//0 - incorreto
 int checkLogin(char login[10], char pwd[10]){
 
     FILE *fp = fopen(".\\DB\\loginCredentials.txt", "r");
@@ -112,18 +112,19 @@ int checkLogin(char login[10], char pwd[10]){
         exit(1);
     }
 
-
     int i = 0;
     char ch;
     struct User myUser;
-    for(i = 0; i< contaLinhasTxt(fp); i++){
+    for(i = 0; i< contaLinhasTxt(fp); i++){ //contaLinhasTxt em utils.c
+
+        //a cada linha no arquivo onde os usuários são guardados, separa os valores da linha, monta uma struct e compara seus valores.
 
         char *values;
-        values = pegaLinhaPorIndex(fp,i);
-        myUser = separaValores(values);
+        values = pegaLinhaPorIndex(fp,i); //função em utils.c
+        myUser = separaValores(values); //função em login.c
 
-        int loginComp = stringComp(strlen(login),login, myUser.login);
-        int pwdComp = stringComp(strlen(pwd),pwd, myUser.senha);
+        int loginComp = stringComp(strlen(login),login, myUser.login); //função em utils.c
+        int pwdComp = stringComp(strlen(pwd),pwd, myUser.senha); //função em utils.c
         if(loginComp == 1 && pwdComp == 1){
             fclose(fp);
             typeLogin = myUser.type;
@@ -137,6 +138,7 @@ int checkLogin(char login[10], char pwd[10]){
 
 }
 
+//retorna o número de caracteres em uma linha
 int *contaCaracteresCamposLinha(char *linha){
     static int caracteres[3];
     int count;
@@ -160,9 +162,10 @@ int *contaCaracteresCamposLinha(char *linha){
     return caracteres;
 }
 
+//retorna uma struct User com base em uma string recebida
 struct User separaValores(char *linha){
     int *tamanhos;
-    tamanhos = contaCaracteresCamposLinha(linha);
+    tamanhos = contaCaracteresCamposLinha(linha); //função em login.c
 
     int tamanhoTotal = (*tamanhos)+(*(tamanhos+1))+3;
     char login[*tamanhos];

@@ -40,7 +40,9 @@ int escreveTelaCadastroUsuario(int type){
 }
 
 
-
+////////////FUNÇÃO PRINCIPAL////////////
+//lê dados digitados do usuário
+//retorna 1 se cadastro realizado com sucesso. 0 se ocorreu erro.
 int cadastroUsuarioTela(int type){
     escreveTelaCadastroUsuario(type);
     char loginAux[10];
@@ -270,7 +272,7 @@ int cadastroUsuarioTela(int type){
 }
 
 
-
+//retorna uma linha em formato CSV com base em uma struct User passada como parâmetro
 char *userStructToLinhaCSV(struct User user, char* var){
     int sizeLogin = strlen(user.login);
     int sizeSenha = strlen(user.senha);
@@ -301,6 +303,7 @@ char *userStructToLinhaCSV(struct User user, char* var){
 
 }
 
+//retorna uma linha em formato CSV com base em uma struct Usuario passada como parâmetro
 char *usuarioStructToLinhaCSV(struct Usuario user, char* var){
     int sizeLogin = strlen(user.login);
     int quatroBytes = 4;
@@ -348,7 +351,8 @@ char *usuarioStructToLinhaCSV(struct Usuario user, char* var){
     return var;
 }
 
-
+//checa se login digitado já está sendo usado
+//retorna 1 se sim. retorna 0 se não
 int checaExistenciaLogin(char *login){
     FILE *fp = fopen(".\\DB\\loginCredentials.txt", "r");
     if(fp==NULL){

@@ -4,6 +4,8 @@
 
 void escreveOpcoesDeNavegacao();
 
+////////////FUNÇÃO PRINCIPAL////////////
+//mostra opções de cadastro, valida opção digitada e direciona para a escolhida.
 int telaCadastro(int typeUser){
     int telaCod=-1;
 
@@ -12,12 +14,12 @@ int telaCadastro(int typeUser){
         escreverOpcoesDeCadastro();
         printf("\n\n Digite o número da tela que deseja acessar: ");
 
-        telaCod = intASCIIToInt(getOneIntegerOnly());
+        telaCod = intASCIIToInt(getOneIntegerOnly()); //-> explicação em menu.c linhas 20 e 21
 
-        int validoOuInvalido = testaValidadeDaOpcaoCadastro(telaCod);
+        int validoOuInvalido = testaValidadeDaOpcaoCadastro(telaCod); //-> explicação em menu.c linha 23
 
         if(validoOuInvalido==0){
-            int result = direcionaParaOpcaoDesejadaCadastro(telaCod, typeUser);
+            int result = direcionaParaOpcaoDesejadaCadastro(telaCod, typeUser); //função em menuCadastro.c direciona para opção digitada
             if(result==-1) return -1;
             if(result==0) telaCadastro(typeUser);
             break;
@@ -30,11 +32,12 @@ int telaCadastro(int typeUser){
     }
 }
 
+//direciona para opção passada no parâmetro. Testa se usuário tem privilégio caso a opção requira.
 int direcionaParaOpcaoDesejadaCadastro(int telaCod, int typeUser){
    switch(telaCod){
         case 1:
             do{
-                int result = cadastroUsuarioTela(1);
+                int result = cadastroUsuarioTela(1);  //função em cadastroFuncionario.c chama tela de cadastro para funcionário.
                 if(result>0){
                     printf("\n Deseja cadastrar outro funcionário? (s/n) ");
                     if(getSimOuNaoInt()==0)
@@ -51,10 +54,10 @@ int direcionaParaOpcaoDesejadaCadastro(int telaCod, int typeUser){
         case 2:
             if(typeUser>1){
                 do{
-                    int result = cadastroUsuarioTela(2);
+                    int result = cadastroUsuarioTela(2); //função em cadastroFuncionario.c chama tela de cadastro para administrador.
                     if(result>0){
                         printf("\n Deseja cadastrar outro administrador? (s/n) ");
-                        if(getSimOuNaoInt()==0)
+                        if(getSimOuNaoInt()==0) //função em utils.c
                             break;
                     } else if(result ==-2){
                         break;

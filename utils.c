@@ -37,6 +37,7 @@ struct Cliente{
     long long int telefone;
 };
 
+//lê apenas um número
 int getOneIntegerOnly()
 {
     //printf("%s", );
@@ -71,6 +72,8 @@ int getOneIntegerOnly()
     return (num);
 }
 
+
+//lê apenas números
 int getIntegerOnly()
 {
     //printf("%s", );
@@ -100,6 +103,7 @@ int getIntegerOnly()
     return (num);
 }
 
+//retorna o número de digitos em um long long int
 int getNumberOfDigitsInLongLongInt(long long int number){
     int count=0;
 
@@ -111,6 +115,7 @@ int getNumberOfDigitsInLongLongInt(long long int number){
     return count;
 }
 
+//retorna o número de digitos em um int
 int getNumberOfDigitsInInt(int number){
     int count=0;
 
@@ -122,6 +127,7 @@ int getNumberOfDigitsInInt(int number){
     return count;
 }
 
+//lê senha e esconde caracteres digitados
 char *readPasswordAndMaskDigited(){
     char senha[10];
     char ch;
@@ -150,6 +156,8 @@ char *readPasswordAndMaskDigited(){
     return senha;
 }
 
+
+//retorna número da tabela ASCII se digitado "s" ou "n"
 int getSimOuNao(){
     //printf("%s", );
     int num = 0, ch;
@@ -172,6 +180,7 @@ int getSimOuNao(){
     return (num);
 }
 
+//retorna 1 se for digitado "s" e 0 se for digitado "n"
 int getSimOuNaoInt() {
     //printf("%s", );
     int num = 0, ch;
@@ -194,11 +203,13 @@ int getSimOuNaoInt() {
     return -1;
 }
 
+//retorna um número 0 se opção digitada é "n" e 1 se "s"
 int intYesOrNoFromCharInt(int num){
     if(num==110) return 0;
     else return 1;
 }
 
+//retorna o valor inteiro correspondente ao número da tabela ASCII de um inteiro
 int intASCIIToInt(int intAsc){
     switch(intAsc){
         case 48: return 0;
@@ -214,6 +225,7 @@ int intASCIIToInt(int intAsc){
     }
 }
 
+//retorna o valor da tabela ASCII de um número inteiro
 char intToIntASCII(int integer){
     switch(integer){
         case 0: return 48;
@@ -229,16 +241,20 @@ char intToIntASCII(int integer){
     }
 }
 
+//limpa tela toda
 void limpaTela(){
     system("cls");
 }
 
+
+//exclui do console o número de linhas passado como parâmetro
 void excluiLinha(int x){
     for(int i = 0; i<x; i++){
         printf("\033[A\33[2K");
     }
 }
 
+//retorna uma linha com base em um index da linha
 char *pegaLinhaPorIndex(FILE *fp, int index){
     char c;
     int count=0;
@@ -351,6 +367,7 @@ char *pegaTamanhoLinhaPorIndex(FILE *fp, int index){
     return i+1;
 }
 
+//retorna o número de linhas em um arquivo .txt. Ponteiro passado como parâmetro
 int contaLinhasTxt(FILE *fp){
     char c;
     int count=0;
@@ -372,6 +389,7 @@ int contaLinhasTxt(FILE *fp){
     return count+1;
 }
 
+//timer - conta o número de segundos e mostra mensagem de Loading ou não
 void timer_util(int secs, int withLoaingMessage) {
     time_t start, end;
     double elapsed;
@@ -391,6 +409,7 @@ void timer_util(int secs, int withLoaingMessage) {
     if(withLoaingMessage==1)printf("\033[A \33[2K\r         \n");
 }
 
+//sobe cursor a qntd passada como parâmetro
 void sobeLinha(int qntd){
     for(int i=0; i<qntd; i++)
         printf(CURSOR_CIMA);
@@ -415,6 +434,7 @@ int stringComp(int size, char str1[], char str2[]){
     return ret;
 }
 
+//conta caracteres em uma linha
 int contaCaracters(char *p){
     int count=0;
     char *p1 = p;
@@ -425,6 +445,7 @@ int contaCaracters(char *p){
     return count;
 }
 
+//retorna nome do tipo com base em seu ID
 char *getTypeCadastro(int type){
 
     switch(type){
@@ -435,6 +456,7 @@ char *getTypeCadastro(int type){
     return NULL;
 }
 
+//retorna nome do tipo com base em seu ID
 char *getTypeCadastroToPointer(int type, char *pointer){
 
     switch(type){
@@ -445,18 +467,21 @@ char *getTypeCadastroToPointer(int type, char *pointer){
     return pointer;
 }
 
+//imprime mensagem
 void printaUsuarioSemPrivilegioMessage(){
     printf(" \n \033[0;31mACESSO NEGADO, USUÁRIO SEM PRIVILÉGIO. \033[0m");
     timer_util(2, 0);
     excluiLinha(2);
 }
 
+//abre diretório explorador de arquivos
 void openDirectory(char *endereco){
     char command[40]="start \"\" \"";
     strcat(command, endereco);
    system(command);
 }
 
+//conta número de digitados em um inteiro
 int contaCasasDecimais(int number){
     int count = 1;
     while((number/10)>0){
@@ -468,6 +493,7 @@ int contaCasasDecimais(int number){
     return count;
 }
 
+//conta número de digitados em um inteiro
 int contaCasasDecimaisLong(long long int number){
     int count = 1;
     while((number/10)>0){
